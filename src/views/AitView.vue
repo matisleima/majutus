@@ -9,10 +9,7 @@
       </div>
       <div class="calendar">
         <vue-cal :view="'month'"
-                 :on-view-change="handleViewChange"
                  style="height: 300px; border: 1px solid #ccc;"></vue-cal>
-
-
       </div>
     </div>
   </div>
@@ -26,14 +23,6 @@ export default {
   name: 'AitView',
   components: {
     VueCal
-  },
-  methods: {
-    handleViewChange(newView) {
-      if (newView !== 'month') {
-        // Force it back to the month view if anything else is tried
-        this.$refs.calendar.setView('month');
-      }
-    }
   }
 }
 </script>
@@ -43,7 +32,7 @@ export default {
 <style scoped>
 .background-section {
   height: 66vh;
-  background: url('@/assets/ait.webp') no-repeat center center / cover;
+  background: url('@/assets/ait.png') no-repeat center center / cover;
 }
 
 .info-section {

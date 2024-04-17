@@ -3,9 +3,10 @@
     <div class="background-section"></div>
     <div class="info-section">
       <div class="description">
-        <h1>Sinu elu magusaim uni...</h1>
-        <p>...saab magatud Luha talu aidas. Seda kinnitab iga külaline, kes on veetnud öö
-          Luha talu kõige luksuslikumas magamiskambris. Siin on ruumi tervele perele või sõpruskonnale.</p>
+        <h3>Kissa-kassa, kissa-kassa kõlgusahe...</h3>
+        <p>Meie kõlgus ei ole ammu enam "põhu, õlgede, kõlgaste, vahel ka heinte panipaik", nagu
+          Eesti Keele Seletav Sõnaraamat selgitada püüab, vaid
+          kõigi mugavustega kahekorruseline aastaringselt kasutatav mõnus pesa!</p>
       </div>
       <div class="calendar">
         <vue-cal :views="['month']" style="height: 300px; width: 100%; border: 1px solid #ccc;"></vue-cal>

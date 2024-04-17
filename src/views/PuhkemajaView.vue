@@ -3,9 +3,9 @@
     <div class="background-section"></div>
     <div class="info-section">
       <div class="description">
-        <h1>Sinu elu magusaim uni...</h1>
-        <p>...saab magatud Luha talu aidas. Seda kinnitab iga külaline, kes on veetnud öö
-          Luha talu kõige luksuslikumas magamiskambris. Siin on ruumi tervele perele või sõpruskonnale.</p>
+        <h1>Plagandõ puhkemaja</h1>
+        <p>Meie kõige ruumikam maja, Plagandõ talu maadele ehitatud kaasaegne kahekorruseline terrassiga
+          suvemaja pakub mõnusat äraolemist neljale ööbijale. Majas on köök ja vannituba.</p>
       </div>
       <div class="calendar">
         <vue-cal :views="['month']" style="height: 300px; width: 100%; border: 1px solid #ccc;"></vue-cal>
