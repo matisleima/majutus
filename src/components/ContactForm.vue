@@ -1,25 +1,25 @@
 <template>
   <div class="container mt-4">
     <h2>Kuninglik puhkus ootab!</h2>
-    <form>
+    <form @submit.prevent="submitForm">
       <!-- Name field -->
       <div class="mb-3 row justify-content-center">
         <div class="col-6">
-          <input type="text" class="form-control" id="name" placeholder="Külastajate nimed">
+          <input type="text" class="form-control" id="name" placeholder="Külastajate nimed" v-model="name">
         </div>
       </div>
 
       <!-- Email field -->
       <div class="mb-3 row justify-content-center">
         <div class="col-6">
-          <input type="email" class="form-control" id="email" placeholder="E-mail">
+          <input type="email" class="form-control" id="email" placeholder="E-mail" v-model="email">
         </div>
       </div>
 
       <!-- Phone field (optional) -->
       <div class="mb-3 row justify-content-center">
         <div class="col-6">
-          <input type="text" class="form-control" id="phone" placeholder="Kontakttelefon">
+          <input type="text" class="form-control" id="phone" placeholder="Kontakttelefon" v-model="phone">
         </div>
       </div>
 
@@ -27,7 +27,7 @@
       <div class="mb-3 row justify-content-center">
         <div class="col-6">
           <label for="house" class="form-label" style="font-size: 20px;">Millises majas soovid ööbida?</label>
-          <select class="form-select" id="house">
+          <select class="form-select" id="house" v-model="selectedHouse">
             <option selected>Vali...</option>
             <option value="house1">Ait</option>
             <option value="house2">Kõlgus</option>
@@ -42,7 +42,8 @@
       <div class="mb-3 row justify-content-center">
         <div class="col-3">
           <label for="arriveDate" class="form-label" style="font-size: 20px;">Saabun</label>
-          <input type="date" class="form-control" id="arriveDate" v-model="arrivalDate" @change="updateDepartureDateMin">
+          <input type="date" class="form-control" id="arriveDate" v-model="arrivalDate" @change="updateDepartureDateMin"
+                 :min="today">
         </div>
         <div class="col-3">
           <label for="departureDate" class="form-label" style="font-size: 20px;">Lahkun</label>
@@ -54,7 +55,8 @@
       <!-- Additional Info (optional) -->
       <div class="mb-3 row justify-content-center">
         <div class="col-6">
-          <textarea class="form-control" id="additionalInfo" rows="3" placeholder="Lisainfo..."></textarea>
+          <textarea class="form-control" id="additionalInfo" rows="3" placeholder="Lisainfo..."
+                    v-model="additionalInfo"></textarea>
         </div>
       </div>
 
@@ -70,17 +72,38 @@
 
 <script>
 export default {
-  name: 'YourComponentName',
+  name: 'ContactForm',
   data() {
     return {
+      name: '',
+      email: '',
+      phone: '',
+      selectedHouse: '',
       arrivalDate: '',
       departureDate: '',
-      minDepartureDate: ''
+      minDepartureDate: '',
+      additionalInfo: '',
+      today: new Date().toISOString().substr(0, 10) // Get today's date in YYYY-MM-DD format
     };
+  },
+  mounted() {
+    this.minDepartureDate = this.today; // Initially set the minimal departure date to today
   },
   methods: {
     updateDepartureDateMin() {
-      this.minDepartureDate = this.arrivalDate;
+      this.minDepartureDate = this.arrivalDate; // Update the minimal departure date
+    },
+    submitForm() {
+      console.log({
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        selectedHouse: this.selectedHouse,
+        arrivalDate: this.arrivalDate,
+        departureDate: this.departureDate,
+        additionalInfo: this.additionalInfo
+      });
+      alert('Form submitted! Check the console for data.');
     }
   }
 }
