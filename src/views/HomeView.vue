@@ -1,81 +1,98 @@
 <template>
   <div>
-
-
-    <div class="container-fluid text-center vh-100">
-      <div class="row h-100">
-        <!-- LEFT SIDE -->
-        <div class="col align-items-center py-4">
-          <div class="col d-flex align-items-center justify-content-center py-4" style="min-height: 100vh;">
-            <h1>TEREH TULÕMAST SETOMAALÕ</h1>
-          </div>
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="col d-flex flex-column justify-content-between py-4">
-
-          <div class="row align-items-center" style="text-align: left; ">
-            <div class="col">
-              <img src="../assets/ait.webp" style="height: 100px; width: auto;" alt="Ait">
-            </div>
-            <div class="col">
-              <h5 style="margin-left: 10px;">AIT</h5>
-            </div>
-          </div>
-
-          <div class="row align-items-center" style="text-align: left;">
-            <div class="col">
-              <img src="../assets/kõlgus.png" style="height: 100px; width: auto;" alt="Kõlgus">
-            </div>
-            <div class="col">
-              <h5 style="margin-left: 10px;">KÕLGUS</h5>
-            </div>
-          </div>
-
-          <div class="row align-items-center" style="text-align: left;">
-            <div class="col">
-              <img src="../assets/plagandõ.png" style="height: 100px; width: auto;" alt="Plagandõ puhkemaja">
-            </div>
-            <div class="col">
-              <h5 style="margin-left: 10px;">PLAGANDÕ PUHKEMAJA</h5>
-            </div>
-          </div>
-
-          <div class="row align-items-center" style="text-align: left;">
-            <div class="col">
-              <img src="../assets/suvemaja.webp" style="height: 100px; width: auto;" alt="Suvemajake">
-            </div>
-            <div class="col">
-              <h5 style="margin-left: 10px;">SUVEMAJAKE</h5>
-            </div>
-          </div>
-
-          <div class="row align-items-center" style="text-align: left;">
-            <div class="col">
-              <img src="../assets/glämping.webp" style="height: 100px; width: auto;" alt="Glämping">
-            </div>
-            <div class="col">
-              <h5 style="margin-left: 10px;">GLÄMPING</h5>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="section fixed-bg" :style="backgroundImageStyle">
+      Tereh tulõmast Setomaalõ
     </div>
+    <div class="section scroll-bg">
+
+      <div class="row">
+
+        <div class="col">
+          <router-link to="/ait" class="col">
+            Ait
+          </router-link>
+        </div>
+
+        <div class="col">
+          <router-link to="/kolgus" class="col">
+            Kõlgus
+          </router-link>
+        </div>
+
+        <div class="col">
+          <router-link to="/puhkemaja" class="col">
+            Puhkemaja
+          </router-link>
+        </div>
+
+        <div class="col">
+          <router-link to="/suvemajake" class="col">
+            Suvemajake
+          </router-link>
+        </div>
+
+        <div class="col">
+          <router-link to="/glamping" class="col">
+            Glämping
+          </router-link>
+        </div>
 
 
 
+      </div>
+
+
+
+
+
+    </div>
+    <div class="section fixed-bg" :style="{ backgroundImage: 'url(' + aitImagePath + ')' }">
+<!--      lihtsalt vaade-->
+    </div>
+    <div class="section scroll-bg">
+      Broneeri
+    </div>
   </div>
 </template>
 
 <script>
+import terrassImage from '@/assets/terrass.webp';
+import telkImage from '@/assets/glämping.webp';
 
 export default {
-  methods: {
-    goToView(viewName) {
-      this.$router.push({name: viewName});
-    }
+  name: 'ParallaxPage',
+  data() {
+    return {
+      backgroundImageStyle: {
+        backgroundImage: `url(${terrassImage})`
+      },
+      aitImagePath: telkImage
+    };
   }
 }
-
 </script>
 
+<style scoped>
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-family: "Nirmala UI", sans-serif;
+}
+
+.fixed-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.scroll-bg {
+  background: white;
+  color: black;
+}
+</style>
