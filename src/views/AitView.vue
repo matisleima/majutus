@@ -6,6 +6,10 @@
         <h1>Sinu elu magusaim uni...</h1>
         <p>...saab magatud Luha talu aidas. Seda kinnitab iga külaline, kes on veetnud öö
           Luha talu kõige luksuslikumas magamiskambris. Siin on ruumi tervele perele või sõpruskonnale.</p>
+
+        <img src="@/assets/icons/toilet-solid.svg" alt="Toilet Icon" width="50" height="50" />
+
+
       </div>
       <div class="calendar">
         <vue-cal :view="'month'"

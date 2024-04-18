@@ -5,7 +5,7 @@
       <div class="description">
         <h1>Loodus ja luksus käsikäes</h1>
         <p>Ruumikas glämpingutelk on neile, kes soovivad ööbida ühtaegu looduse keskel,
-          aga mugavas ja soojas voodis. Uinutav tuulekohin puulatvades ja salapärased loodushääled,
+          aga mugavas soojas voodis. Uinutav tuulekohin ja salapärased loodushääled,
           mida seinad ei summuta, on Luha talu glämpingugtelgist teinud uutmoodi ööbimiskogemuse
           otsijate lemmikpaiga!</p>
       </div>

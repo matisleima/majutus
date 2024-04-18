@@ -1,7 +1,9 @@
 <template>
   <div>
     <div class="section fixed-bg" :style="backgroundImageStyle">
-      Tereh tulõmast Setomaalõ
+      <h1 style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.9);">
+        Tereh tulõmast Setomaalõ
+      </h1>
     </div>
     <div class="section scroll-bg">
       <div class="row">
