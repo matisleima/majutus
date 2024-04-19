@@ -4,11 +4,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
-
-# Add a command to list the contents of /app to verify that 'dist' directory is created
-RUN ls -al /app
+RUN npm run build && ls -al /app
 RUN ls -al /app/dist
+
 
 # Stage 2: Serve the application with a server, for example, Nginx
 FROM nginx:stable-alpine as production-stage
