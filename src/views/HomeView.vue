@@ -9,27 +9,27 @@
       <div class="row">
         <div class="col">
           <router-link to="/ait" class="col">
-            Ait
+            <h1>Ait</h1>
           </router-link>
         </div>
         <div class="col">
           <router-link to="/kolgus" class="col">
-            Kõlgus
+            <h1>Kõlgus</h1>
           </router-link>
         </div>
         <div class="col">
           <router-link to="/puhkemaja" class="col">
-            Puhkemaja
+            <h1>Puhkemaja</h1>
           </router-link>
         </div>
         <div class="col">
           <router-link to="/suvemajake" class="col">
-            Suvemajake
+            <h1>Suvemajake</h1>
           </router-link>
         </div>
         <div class="col">
           <router-link to="/glamping" class="col">
-            Glämping
+            <h1>Glämping</h1>
           </router-link>
         </div>
       </div>
@@ -89,4 +89,16 @@ export default {
   background: white;
   color: black;
 }
+
+/* Targeting <a> tags directly within .row */
+.row a {
+  color: #666; /* Dark gray color */
+  text-decoration: none; /* Removes underline */
+}
+
+.row a:hover {
+  color: #00b100; /* Lighter gray color on hover */
+  text-decoration: underline; /* Adds underline on hover if desired */
+}
 </style>
+

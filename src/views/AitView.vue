@@ -3,13 +3,81 @@
     <div class="background-section"></div>
     <div class="info-section">
       <div class="description">
-        <h1>Sinu elu magusaim uni...</h1>
-        <p>...saab magatud Luha talu aidas. Seda kinnitab iga külaline, kes on veetnud öö
-          Luha talu kõige luksuslikumas magamiskambris. Siin on ruumi tervele perele või sõpruskonnale.</p>
-
-        <img src="@/assets/icons/toilet-solid.svg" alt="Toilet Icon" width="50" height="50" />
-
-
+        <div class="row">
+          <h3>Sinu elu magusaim uni...</h3>
+          <p>...saab magatud Luha talu aidas. Seda kinnitab
+            iga külaline, kes on veetnud öö Luha talu kõige
+            luksuslikumas magamiskambris. Siin on ruumi tervele
+            perele või sõpruskonnale.</p>
+        </div>
+        <div class="row" style="display: flex; justify-content: center; align-items: center;">
+          <!--MUGAVUSED-->
+          <div>
+            <!--ELEKTER-->
+            <div class="hover-container">
+              <img src="@/assets/icons/plug-solid.svg"
+                   class="icon-available"
+                   width="50" height="50"/>
+              <div class="hover-text">Elekter</div>
+            </div>
+            <!--VEEKRAAN-->
+            <div class="hover-container">
+              <img src="@/assets/icons/sink-solid.svg"
+                   class="icon-unavailable"
+                   width="50" height="50"/>
+              <div class="hover-text">Veekraan</div>
+            </div>
+            <!--DUŠŠ-->
+            <div class="hover-container">
+              <img src="@/assets/icons/shower-solid.svg"
+                   class="icon-unavailable"
+                   width="50" height="50"/>
+              <div class="hover-text">Dušš</div>
+            </div>
+            <!--VESIKÄIMLA-->
+            <div class="hover-container">
+              <img src="@/assets/icons/toilet-solid.svg"
+                   class="icon-unavailable"
+                   width="50" height="50"/>
+              <div class="hover-text">Vesikäimla</div>
+            </div>
+            <!--KUIVKÄIMLA-->
+            <div class="hover-container">
+              <img src="@/assets/icons/restroom-solid.svg"
+                   class="icon-available"
+                   width="50" height="50"/>
+              <div class="hover-text">Kuivkäimla</div>
+            </div>
+            <!--KÖÖGINURK-->
+            <div class="hover-container">
+              <img src="@/assets/icons/kitchen-set-solid.svg"
+                   class="icon-unavailable"
+                   width="50" height="50"/>
+              <div class="hover-text">Kööginurk</div>
+            </div>
+            <!--KOHVINURK-->
+            <div class="hover-container">
+              <img src="@/assets/icons/mug-hot-solid.svg"
+                   class="icon-available"
+                   width="50" height="50"/>
+              <div class="hover-text">Tee- ja kohvinurk</div>
+            </div>
+            <!--LUKUSTUS-->
+            <div class="hover-container">
+              <img src="@/assets/icons/lock-solid.svg"
+                   class="icon-unavailable"
+                   width="50" height="50"/>
+              <div class="hover-text">Lukustus</div>
+            </div>
+            <!--UJUMISVÕIMALUS-->
+            <div class="hover-container">
+              <img src="@/assets/icons/person-swimming-solid.svg"
+                   class="icon-available"
+                   width="50" height="50"/>
+              <div class="hover-text">Ujumisvõimalus</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="calendar">
         <vue-cal :view="'month'"
@@ -57,5 +125,42 @@ export default {
 
 .calendar {
   padding-left: 20px; /* Adds some space between the calendar and the text */
+}
+
+.icon-available {
+  width: 50px; /* This ensures the width is the same for all icons */
+  height: 50px; /* This ensures the height is the same for all icons */
+  margin: 5px; /* Adjust the margin as needed to control spacing */
+  filter: drop-shadow(0 0 5px #00b100); /* Green glow */
+}
+
+.icon-unavailable {
+  width: 50px; /* This ensures the width is the same for all icons */
+  height: 50px; /* This ensures the height is the same for all icons */
+  margin: 5px; /* Adjust the margin as needed to control spacing */
+  filter: drop-shadow(0 0 5px #b10000); /* Green glow */
+}
+
+.hover-container {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-text {
+  visibility: hidden;
+  position: absolute;
+  bottom: 100%;
+  width: fit-content;
+
+  transform: translate(0%, 0px);
+  background-color: #333;
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.hover-container:hover .hover-text {
+  visibility: visible;
 }
 </style>
