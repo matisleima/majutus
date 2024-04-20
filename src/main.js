@@ -10,9 +10,12 @@ import "@/assets/css/my-style.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
+console.log('Creating app...');
 const app = createApp(App)
+console.log('App created.');
 
 app.use(router)
 app.use(VueAxios, axios)
+console.log('Mounting app...');
 app.mount('#app')
+console.log('App mounted.');
