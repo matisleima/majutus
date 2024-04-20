@@ -1,20 +1,27 @@
-import { fileURLToPath, URL } from 'node:url'
+import { fileURLToPath, URL } from 'node:url';
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
 
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
   ],
-  base: process.env.NODE_ENV === 'production' ? '/' : '/',
+  base: '/',
   build: {
-    outDir: 'dist', // Make sure build files go to 'dist'
+    outDir: 'dist', // Default output directory
+    rollupOptions: {
+      output: {
+        // Define naming convention for the assets
+        assetFileNames: `assets/[name].[hash].[ext]`,
+        chunkFileNames: `assets/[name].[hash].js`,
+        entryFileNames: `assets/[name].[hash].js`,
+      }
+    }
   },
   resolve: {
     alias: {
+      // Setup an alias for the src directory
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   }
-})
+});
