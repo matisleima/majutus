@@ -68,7 +68,7 @@
                    width="50" height="50"/>
               <div class="hover-text">Lukustus</div>
             </div>
-            <!--UJUMISVÕIMALUS-->
+            <!--UjJUMISVÕIMALUS-->
             <div class="hover-container">
               <img src="@/assets/icons/person-swimming-solid.svg"
                    class="icon-available"
