@@ -62,7 +62,7 @@
                    width="50" height="50"/>
               <div class="hover-text">Tee- ja kohvinurk</div>
             </div>
-            <!--LUKUSTUS-->
+            <!--LUKUSTUUS-->
             <div class="hover-container">
               <img src="@/assets/icons/lock-solid.svg"
                    class="icon-unavailable"
