@@ -93,9 +93,9 @@
 
 export default {
   name: 'AitView',
-  components: {
-    VueCal
-  }
+  // components: {
+  //   VueCal
+  // }
 }
 </script>
 

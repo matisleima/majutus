@@ -93,9 +93,9 @@
 
 export default {
   name: 'KolgusView',
-  components: {
-    VueCal
-  }
+  // components: {
+  //   VueCal
+  // }
 }
 </script>
 

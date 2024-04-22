@@ -93,9 +93,9 @@
 
 export default {
   name: 'SuvemajakeView',
-  components: {
-    VueCal
-  }
+  // components: {
+  //   VueCal
+  // }
 }
 </script>
 
