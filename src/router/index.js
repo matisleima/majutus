@@ -1,4 +1,4 @@
-import {createRouter, createWebHistory} from 'vue-router'
+import {createRouter, createWebHashHistory} from 'vue-router';
 import HomeView from "@/views/HomeView.vue";
 import AitView from "@/views/AitView.vue";
 import SuvemajakeView from "@/views/SuvemajakeView.vue";
@@ -37,12 +37,11 @@ const routes = [
         name: 'glampingRoute',
         component: GlampingView
     }
-
-]
+];
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHashHistory(),
     routes
-})
+});
 
-export default router
+export default router;

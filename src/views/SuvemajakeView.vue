@@ -78,18 +78,18 @@
           </div>
         </div>
       </div>
-      <div class="calendar">
-        <vue-cal :views="['month']" style="height: 300px; width: 100%; border: 1px solid #ccc;"></vue-cal>
+<!--      <div class="calendar">-->
+<!--        <vue-cal :views="['month']" style="height: 300px; width: 100%; border: 1px solid #ccc;"></vue-cal>-->
 
 
-      </div>
+<!--      </div>-->
     </div>
   </div>
 </template>
 
 <script>
-import VueCal from 'vue-cal'
-import 'vue-cal/dist/vuecal.css'
+// import VueCal from 'vue-cal'
+// import 'vue-cal/dist/vuecal.css'
 
 export default {
   name: 'SuvemajakeView',

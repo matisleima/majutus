@@ -79,17 +79,17 @@
           </div>
         </div>
       </div>
-      <div class="calendar">
-        <vue-cal :view="'month'"
-                 style="height: 300px; border: 1px solid #ccc;"></vue-cal>
-      </div>
+<!--      <div class="calendar">-->
+<!--        <vue-cal :view="'month'"-->
+<!--                 style="height: 300px; border: 1px solid #ccc;"></vue-cal>-->
+<!--      </div>-->
     </div>
   </div>
 </template>
 
 <script>
-import VueCal from 'vue-cal'
-import 'vue-cal/dist/vuecal.css'
+// import VueCal from 'vue-cal'
+// import 'vue-cal/dist/vuecal.css'
 
 export default {
   name: 'AitView',
