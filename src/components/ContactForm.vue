@@ -103,7 +103,7 @@ export default {
         departureDate: this.departureDate,
         additionalInfo: this.additionalInfo
       });
-      alert('Form submitted! Check the console for data.');
+      alert('Päring saadetud!');
     }
   }
 }
