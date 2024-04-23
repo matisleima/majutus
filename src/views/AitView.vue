@@ -10,7 +10,7 @@
             luksuslikumas magamiskambris. Siin on ruumi tervele
             perele või sõpruskonnale.</p>
         </div>
-        <div class="row" style="display: flex; justify-content: center; align-items: center;">
+        <div class="row mt-3" style="display: flex; justify-content: center; align-items: center;">
           <!--MUGAVUSED-->
           <div>
             <!--ELEKTER-->
@@ -78,7 +78,7 @@
             </div>
           </div>
         </div>
-        <div class="row m-4" style="display: flex; justify-content: center; align-items: center;">
+        <div class="row m-4 mt-4" style="display: flex; justify-content: center; align-items: center;">
           <div v-for="(image, index) in images" :key="index" class="thumbnail m-2" @click="openLightbox(index)">
             <img :src="image" alt="Pisipilt" class="image-thumbnail">
           </div>
@@ -117,7 +117,7 @@ export default {
         './src/assets/majandus add/saun 2.png',
         './src/assets/majandus add/saun 3.png',
         './src/assets/majandus add/kemmerg 1.png',
-        // '@/assets/majandus add/kemmerg 2.png', // Uncomment if needed
+        './src/assets/majandus add/kemmerg 2.png', // Uncomment if needed
       ],
       currentIndex: 0,
       showLightbox: false
@@ -237,8 +237,8 @@ export default {
 }
 
 .image-thumbnail {
-  width: 100px; /* Adjust based on your design needs */
-  height: auto;
+  height: 60px; /* Adjust based on your design needs */
+  width: auto;
 }
 
 .lightbox {
