@@ -127,9 +127,11 @@ export default {
     openLightbox(index) {
       this.currentIndex = index;
       this.showLightbox = true;
+      document.addEventListener('keydown', this.handleKey);
     },
     closeLightbox() {
       this.showLightbox = false;
+      document.removeEventListener('keydown', this.handleKey);
     },
     nextImage() {
       if (this.currentIndex < this.images.length - 1) {
@@ -139,6 +141,15 @@ export default {
     previousImage() {
       if (this.currentIndex > 0) {
         this.currentIndex--;
+      }
+    },
+    handleKey(e) {
+      if (e.key === 'ArrowRight') {
+        this.nextImage();
+      } else if (e.key === 'ArrowLeft') {
+        this.previousImage();
+      } else if (e.key === 'Escape') {
+        this.closeLightbox();
       }
     }
   }
