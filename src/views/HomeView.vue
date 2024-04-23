@@ -45,7 +45,7 @@
 
 
 <script>
-import welcomeImage from '@/assets/welcome.png';
+import welcomeImage from '@/assets/welcome2.png';
 import telkImage from '@/assets/glämping.webp';
 import ContactForm from "@/components/ContactForm.vue";
 

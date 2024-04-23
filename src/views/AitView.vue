@@ -78,6 +78,11 @@
             </div>
           </div>
         </div>
+        <div class="row m-4" style="display: flex; justify-content: center; align-items: center;">
+          <img src="../assets/ait add/ait in 2.png" width="100" class="mx-2"/>
+          <img src="../assets/ait add/ait in 1.png" width="100" class="mx-2"/>
+          <img src="../assets/ait add/ait in 3.png" width="100"class="mx-2"/>
+          </div>
       </div>
       <div class="calendar">
         <vue-cal :view="'month'"

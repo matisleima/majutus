@@ -101,7 +101,7 @@ export default {
 <style scoped>
 .background-section {
   height: 66vh;
-  background: url('@/assets/suvemaja.png') no-repeat center center / cover;
+  background: url('@/assets/suvemajake.png') no-repeat center center / cover;
 }
 
 .info-section {
