@@ -90,23 +90,21 @@
           <span class="close" @click.stop="closeLightbox">&times;</span>
         </div>
       </div>
-      <div class="calendar">
-        <vue-cal :view="'month'"
-                 style="height: 300px; border: 1px solid #ccc;"></vue-cal>
+      <div class="calendar row">
+        <my-calendar></my-calendar>
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import VueCal from 'vue-cal'
-import 'vue-cal/dist/vuecal.css'
-
+import MyCalendar from "@/components/MyCalendar.vue";
 export default {
-  name: 'AitView',
   components: {
-    VueCal
+    MyCalendar  // This registers MyCalendar for use in this component's template
   },
+  name: 'AitView',
   data() {
     return {
       images: [
