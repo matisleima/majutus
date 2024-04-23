@@ -79,10 +79,16 @@
           </div>
         </div>
         <div class="row m-4" style="display: flex; justify-content: center; align-items: center;">
-          <img src="@/assets/ait-add/ait-in-2.png" width="100" class="mx-2"/>
-          <img src="@/assets/ait-add/ait-in-1.png" width="100" class="mx-2"/>
-          <img src="@/assets/ait-add/ait-in-3.png" width="100" class="mx-2"/>
+          <div v-for="(image, index) in images" :key="index" class="thumbnail m-2" @click="openLightbox(index)">
+            <img :src="image" alt="Pisipilt" class="image-thumbnail">
           </div>
+        </div>
+        <div v-if="showLightbox" class="lightbox" @click.self="closeLightbox">
+          <span class="nav left" @click.stop="previousImage">&lt;</span>
+          <img :src="images[currentIndex]" alt="Suur pilt" class="full-size-image">
+          <span class="nav right" @click.stop="nextImage">&gt;</span>
+          <span class="close" @click.stop="closeLightbox">&times;</span>
+        </div>
       </div>
       <div class="calendar">
         <vue-cal :view="'month'"
@@ -100,10 +106,44 @@ export default {
   name: 'AitView',
   components: {
     VueCal
+  },
+  data() {
+    return {
+      images: [
+        './src/assets/ait-add/ait-in-2.png',
+        './src/assets/ait-add/ait-in-1.png',
+        './src/assets/ait-add/ait-in-3.png',
+        './src/assets/majandus add/saun 1.png',
+        './src/assets/majandus add/saun 2.png',
+        './src/assets/majandus add/saun 3.png',
+        './src/assets/majandus add/kemmerg 1.png',
+        // '@/assets/majandus add/kemmerg 2.png', // Uncomment if needed
+      ],
+      currentIndex: 0,
+      showLightbox: false
+    };
+  },
+  methods: {
+    openLightbox(index) {
+      this.currentIndex = index;
+      this.showLightbox = true;
+    },
+    closeLightbox() {
+      this.showLightbox = false;
+    },
+    nextImage() {
+      if (this.currentIndex < this.images.length - 1) {
+        this.currentIndex++;
+      }
+    },
+    previousImage() {
+      if (this.currentIndex > 0) {
+        this.currentIndex--;
+      }
+    }
   }
 }
 </script>
-
 
 
 <style scoped>
@@ -167,5 +207,71 @@ export default {
 
 .hover-container:hover .hover-text {
   visibility: visible;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
+}
+
+.image-thumbnail {
+  width: 100px; /* Adjust based on your design needs */
+  height: auto;
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000; /* High z-index to ensure it covers other content */
+}
+
+.full-size-image {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  z-index: 1001; /* Ensure close button is above the lightbox image */
+}
+
+.nav {
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav.left {
+  left: 10px;
+}
+
+.nav.right {
+  right: 10px;
 }
 </style>
