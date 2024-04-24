@@ -57,6 +57,7 @@ export default {
 
 <style scoped>
 .calendar-controls {
+  width: 250px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -65,14 +66,14 @@ export default {
 }
 
 table {
-  width: 400px; /* Set the desired width here */
+  width: 250px; /* Set the desired width here */
   height: auto; /* Adjust based on your design, or set a fixed height */
   border-collapse: collapse;
 }
 
 td {
   width: calc(100% / 7); /* This ensures the cells are evenly spaced in the table */
-  height: 50px; /* Fixed height for each day cell */
+  height: 30px; /* Fixed height for each day cell */
   background-color: #f0f0f0;
   text-align: center;
   vertical-align: middle;

@@ -2,7 +2,17 @@
   <div>
     <div class="background-section"></div>
     <div class="info-section">
-      <div class="description">
+
+      <div class="col m-3">
+        <div class="calendar row">
+          <my-calendar></my-calendar>
+        </div>
+        <div class="row">
+          <button type="button" class="btn btn-success mt-3">Mine broneerima!</button>
+        </div>
+      </div>
+
+      <div class="col">
         <div class="row">
           <h3>Sinu elu magusaim uni...</h3>
           <p>...saab magatud Luha talu aidas. Seda kinnitab
@@ -12,7 +22,7 @@
         </div>
         <div class="row mt-3" style="display: flex; justify-content: center; align-items: center;">
           <!--MUGAVUSED-->
-          <div>
+          <div class="row">
             <!--ELEKTER-->
             <div class="hover-container">
               <img src="@/assets/icons/plug-solid.svg"
@@ -78,7 +88,10 @@
             </div>
           </div>
         </div>
-        <div class="row m-4 mt-4" style="display: flex; justify-content: center; align-items: center;">
+      </div>
+
+      <div class="col">
+        <div class="row m-4" style="display: flex; justify-content: center; align-items: center;">
           <div v-for="(image, index) in images" :key="index" class="thumbnail m-2" @click="openLightbox(index)">
             <img :src="image" alt="Pisipilt" class="image-thumbnail">
           </div>
@@ -89,9 +102,6 @@
           <span class="nav right" @click.stop="nextImage">&gt;</span>
           <span class="close" @click.stop="closeLightbox">&times;</span>
         </div>
-      </div>
-      <div class="calendar row">
-        <my-calendar></my-calendar>
 
       </div>
     </div>
@@ -115,7 +125,7 @@ export default {
         './src/assets/majandus add/saun 2.png',
         './src/assets/majandus add/saun 3.png',
         './src/assets/majandus add/kemmerg 1.png',
-        './src/assets/majandus add/kemmerg 2.png', // Uncomment if needed
+        './src/assets/majandus add/kemmerg 2.png',
       ],
       currentIndex: 0,
       showLightbox: false
@@ -169,16 +179,8 @@ export default {
   height: 34vh;
 }
 
-.description, .calendar {
-  flex: 1;
-}
-
-.description {
-  padding-right: 20px; /* Adds some space between the text and the calendar */
-}
-
 .calendar {
-  padding-left: 20px; /* Adds some space between the calendar and the text */
+  padding-left: 0px; /* Adds some space between the calendar and the text */
 }
 
 .icon-available {
@@ -227,11 +229,11 @@ export default {
 
 .thumbnail {
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.7s ease;
 }
 
 .thumbnail:hover {
-  transform: scale(1.1);
+  transform: scale(3.0);
 }
 
 .image-thumbnail {
