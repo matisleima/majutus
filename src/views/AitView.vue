@@ -118,7 +118,7 @@ export default {
   data() {
     return {
       images: [
-        './src/assets/ait-add/ait-in-2.png',
+        'majutus/src/assets/ait-add/ait-in-2.png',
         './src/assets/ait-add/ait-in-1.png',
         './src/assets/ait-add/ait-in-3.png',
         './src/assets/majandus add/saun 1.png',
