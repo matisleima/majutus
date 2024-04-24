@@ -118,14 +118,14 @@ export default {
   data() {
     return {
       images: [
-        'majutus/src/assets/ait-add/ait-in-2.png',
+        './src/assets/ait-add/ait-in-2.png',
         './src/assets/ait-add/ait-in-1.png',
         './src/assets/ait-add/ait-in-3.png',
-        './src/assets/majandus add/saun 1.png',
-        './src/assets/majandus add/saun 2.png',
-        './src/assets/majandus add/saun 3.png',
-        './src/assets/majandus add/kemmerg 1.png',
-        './src/assets/majandus add/kemmerg 2.png',
+        './src/assets/majandus-add/saun-1.png',
+        './src/assets/majandus-add/saun-2.png',
+        './src/assets/majandus-add/saun-3.png',
+        './src/assets/majandus-add/kemmerg-1.png',
+        './src/assets/majandus-add/kemmerg-2.png',
       ],
       currentIndex: 0,
       showLightbox: false
