@@ -2,7 +2,7 @@
   <div>
     <div class="section fixed-bg" :style="backgroundImageStyle">
       <h1 style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.9);">
-        Tereh tulõmast Setomaalõ
+        Kuninglik puhkus Setomaal
       </h1>
     </div>
     <div class="section scroll-bg">
@@ -35,10 +35,14 @@
       </div>
     </div>
     <div class="section fixed-bg" :style="{ backgroundImage: 'url(' + aitImagePath + ')' }">
-      <!-- Just a view -->
     </div>
     <div class="section scroll-bg">
-      <contact-form /> <!-- Corrected closing of the self-closing tag -->
+      TURISM
+    </div>
+    <div class="section fixed-bg" :style="{ backgroundImage: 'url(' + aitImagePath + ')' }">
+    </div>
+    <div class="section scroll-bg">
+      <contact-form />
     </div>
   </div>
 </template>
