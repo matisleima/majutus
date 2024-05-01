@@ -1,6 +1,12 @@
 <template>
   <div>
-    <div class="background-section"></div>
+    <div class="background-section">
+
+      <button @click="goBack" style="background: transparent; border: none; color: white; font-size: 20px;">
+        Tagasi
+      </button>
+
+    </div>
     <div class="info-section">
 
       <div class="col m-3">
@@ -110,6 +116,7 @@
 
 <script>
 import MyCalendar from "@/components/MyCalendar.vue";
+
 export default {
   components: {
     MyCalendar  // This registers MyCalendar for use in this component's template
@@ -118,14 +125,14 @@ export default {
   data() {
     return {
       images: [
-        'majutus/src/assets/ait-add/ait-in-2.png',
-        './src/assets/ait-add/ait-in-1.png',
-        './src/assets/ait-add/ait-in-3.png',
-        './src/assets/majandus add/saun 1.png',
-        './src/assets/majandus add/saun 2.png',
-        './src/assets/majandus add/saun 3.png',
-        './src/assets/majandus add/kemmerg 1.png',
-        './src/assets/majandus add/kemmerg 2.png',
+        new URL('../assets/ait-add/ait-in-2.png', import.meta.url).href,
+        new URL('../assets/ait-add/ait-in-1.png', import.meta.url).href,
+        new URL('../assets/ait-add/ait-in-3.png', import.meta.url).href,
+        new URL('../assets/majandus-add/saun-1.png', import.meta.url).href,
+        new URL('../assets/majandus-add/saun-2.png', import.meta.url).href,
+        new URL('../assets/majandus-add/saun-3.png', import.meta.url).href,
+        new URL('../assets/majandus-add/kemmerg-1.png', import.meta.url).href,
+        new URL('../assets/majandus-add/kemmerg-2.png', import.meta.url).href
       ],
       currentIndex: 0,
       showLightbox: false
@@ -159,16 +166,22 @@ export default {
       } else if (e.key === 'Escape') {
         this.closeLightbox();
       }
+    },
+    goBack() {
+      this.$router.back();
     }
   }
 }
 </script>
 
 
+
+
 <style scoped>
 .background-section {
   height: 66vh;
   background: url('@/assets/ait.png') no-repeat center center / cover;
+  min-height: 200px;
 }
 
 .info-section {
@@ -194,7 +207,7 @@ export default {
   width: 50px; /* This ensures the width is the same for all icons */
   height: 50px; /* This ensures the height is the same for all icons */
   margin: 5px; /* Adjust the margin as needed to control spacing */
-  filter: drop-shadow(0 0 5px #b10000); /* Green glow */
+  filter: drop-shadow(0 0 5px #b10000); /* Red glow */
 }
 
 .hover-container {
@@ -207,17 +220,11 @@ export default {
   position: absolute;
   bottom: 100%;
   width: fit-content;
-
-  transform: translate(0%, 0px);
   background-color: #333;
   color: #fff;
   padding: 8px;
   border-radius: 4px;
   text-align: center;
-}
-
-.hover-container:hover .hover-text {
-  visibility: visible;
 }
 
 .row {
@@ -233,7 +240,7 @@ export default {
 }
 
 .thumbnail:hover {
-  transform: scale(3.0);
+  transform: scale(1.5); /* Adjusted for mobile usability */
 }
 
 .image-thumbnail {
@@ -285,4 +292,37 @@ export default {
 .nav.right {
   right: 10px;
 }
+
+@media (max-width: 768px) {
+  .background-section, .icon-available, .icon-unavailable {
+    height: auto; /* Adjust heights for smaller screens */
+  }
+
+  .info-section {
+    flex-direction: column; /* Stack sections vertically */
+    height: auto;
+  }
+
+  .hover-container, .hover-text {
+    font-size: smaller; /* Smaller tooltips */
+  }
+
+  .image-thumbnail {
+    width: 80%; /* Larger view for thumbnails on small screens */
+    margin: auto; /* Centering thumbnails */
+  }
+
+  .btn {
+    padding: 15px 30px; /* Larger button for easier tapping */
+  }
+
+  body {
+    font-size: 16px; /* Larger font size for readability */
+  }
+
+  input, select, button {
+    font-size: 16px; /* Larger form elements */
+  }
+}
 </style>
+
