@@ -5,45 +5,45 @@
         Kuninglik puhkus Setomaal
       </h1>
     </div>
-    <div class="section scroll-bg">
-      <div class="row">
-        <div class="col">
-          <router-link to="/ait" class="col">
-            <h1>Ait</h1>
-          </router-link>
-        </div>
-        <div class="col">
-          <router-link to="/kolgus" class="col">
-            <h1>Kõlgus</h1>
-          </router-link>
-        </div>
-        <div class="col">
-          <router-link to="/puhkemaja" class="col">
-            <h1>Puhkemaja</h1>
-          </router-link>
-        </div>
-        <div class="col">
-          <router-link to="/suvemajake" class="col">
-            <h1>Suvemajake</h1>
-          </router-link>
-        </div>
-        <div class="col">
-          <router-link to="/glamping" class="col">
-            <h1>Glämping</h1>
-          </router-link>
-        </div>
-      </div>
-    </div>
-    <div class="section fixed-bg" :style="{ backgroundImage: 'url(' + aitImagePath + ')' }">
-    </div>
-    <div class="section scroll-bg">
-      TURISM
-    </div>
-    <div class="section fixed-bg" :style="{ backgroundImage: 'url(' + aitImagePath + ')' }">
-    </div>
-    <div class="section scroll-bg">
-      <contact-form />
-    </div>
+<!--    <div class="section scroll-bg">-->
+<!--      <div class="row">-->
+<!--        <div class="col">-->
+<!--          <router-link to="/ait" class="col">-->
+<!--            <h1>Ait</h1>-->
+<!--          </router-link>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--          <router-link to="/kolgus" class="col">-->
+<!--            <h1>Kõlgus</h1>-->
+<!--          </router-link>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--          <router-link to="/puhkemaja" class="col">-->
+<!--            <h1>Puhkemaja</h1>-->
+<!--          </router-link>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--          <router-link to="/suvemajake" class="col">-->
+<!--            <h1>Suvemajake</h1>-->
+<!--          </router-link>-->
+<!--        </div>-->
+<!--        <div class="col">-->
+<!--          <router-link to="/glamping" class="col">-->
+<!--            <h1>Glämping</h1>-->
+<!--          </router-link>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="section fixed-bg" :style="{ backgroundImage: 'url(' + aitImagePath + ')' }">-->
+<!--    </div>-->
+<!--    <div class="section scroll-bg">-->
+<!--      TURISM-->
+<!--    </div>-->
+<!--    <div class="section fixed-bg" :style="{ backgroundImage: 'url(' + aitImagePath + ')' }">-->
+<!--    </div>-->
+<!--    <div class="section scroll-bg">-->
+<!--      <contact-form />-->
+<!--    </div>-->
   </div>
 </template>
 
