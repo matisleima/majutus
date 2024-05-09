@@ -11,7 +11,7 @@
 
       <div class="col m-3">
         <div class="calendar row">
-          <my-calendar></my-calendar>
+          <ait-calendar></ait-calendar>
         </div>
         <div class="row">
           <button type="button" class="btn btn-success mt-3">Mine broneerima!</button>
@@ -19,16 +19,17 @@
       </div>
 
       <div class="col">
-        <div class="row">
-          <h3>Sinu elu magusaim uni...</h3>
-          <p>...saab magatud Luha talu aidas. Seda kinnitab
-            iga külaline, kes on veetnud öö Luha talu kõige
-            luksuslikumas magamiskambris. Siin on ruumi tervele
-            perele või sõpruskonnale.</p>
+        <div class="row" style="margin-bottom: 15px;">
+          <p style="text-align: justify">Sajandivanusest, “kahe poolega” aidast, kus kunagi hoiti ühel pool söögikraami
+            ja teisel riideid, on nüüd, peale renoveerimist saanud mõnus “magamisait”. Ait on
+            õhurikas ja palkhoonele omaselt suvise palavusega ka meeldivalt jahe. Aida ühel pool
+            on üks lai voodi, teisel pool kaks üheinimese voodit. Võimalik lisada väikelapse voodi.
+            Pesta saab saunas ja ujuda puhta veega tiigis. Kasealune terrass on lihtsalt üks hea
+            olemise koht. Ventileeritud kuivkäimla asub aida kõrval.</p>
         </div>
-        <div class="row mt-3" style="display: flex; justify-content: center; align-items: center;">
+        <div class="icon-section" style="display: flex; justify-content: center; align-items: center;">
           <!--MUGAVUSED-->
-          <div class="row">
+          <div class="row icon-row">
             <!--ELEKTER-->
             <div class="hover-container">
               <img src="@/assets/icons/plug-solid.svg"
@@ -78,7 +79,7 @@
                    width="50" height="50"/>
               <div class="hover-text">Tee- ja kohvinurk</div>
             </div>
-            <!--LUKUSTUUS-->
+            <!--LUKUSTUS-->
             <div class="hover-container">
               <img src="@/assets/icons/lock-solid.svg"
                    class="icon-unavailable"
@@ -115,24 +116,24 @@
 </template>
 
 <script>
-import MyCalendar from "@/components/MyCalendar.vue";
+import AitCalendar from "@/components/AitCalendar.vue";
 
 export default {
   components: {
-    MyCalendar  // This registers MyCalendar for use in this component's template
+    AitCalendar  // This registers MyCalendar for use in this component's template
   },
   name: 'AitView',
   data() {
     return {
       images: [
-        new URL('../assets/ait-add/ait-in-2.png', import.meta.url).href,
-        new URL('../assets/ait-add/ait-in-1.png', import.meta.url).href,
-        new URL('../assets/ait-add/ait-in-3.png', import.meta.url).href,
-        new URL('../assets/majandus-add/saun-1.png', import.meta.url).href,
-        new URL('../assets/majandus-add/saun-2.png', import.meta.url).href,
-        new URL('../assets/majandus-add/saun-3.png', import.meta.url).href,
-        new URL('../assets/majandus-add/kemmerg-1.png', import.meta.url).href,
-        new URL('../assets/majandus-add/kemmerg-2.png', import.meta.url).href
+        new URL('@/assets/aitIn2.webp', import.meta.url).href,
+        new URL('@/assets/aitIn1.webp', import.meta.url).href,
+        new URL('@/assets/aitIn3.webp', import.meta.url).href,
+        new URL('@/assets/saun1.webp', import.meta.url).href,
+        new URL('@/assets/saun2.webp', import.meta.url).href,
+        new URL('@/assets/saun3.webp', import.meta.url).href,
+        new URL('@/assets/kemmerg1.webp', import.meta.url).href,
+        new URL('@/assets/kemmerg2.webp', import.meta.url).href
       ],
       currentIndex: 0,
       showLightbox: false
@@ -180,7 +181,7 @@ export default {
 <style scoped>
 .background-section {
   height: 66vh;
-  background: url('@/assets/ait.png') no-repeat center center / cover;
+  background: url('@/assets/ait.webp') no-repeat center center / cover;
   min-height: 200px;
 }
 
@@ -190,6 +191,7 @@ export default {
   padding: 20px;
   background: white;
   height: 34vh;
+  margin-bottom: 180px; /* Adjust this value as needed for more or less space */
 }
 
 .calendar {
@@ -226,6 +228,11 @@ export default {
   border-radius: 4px;
   text-align: center;
 }
+
+.hover-container:hover .hover-text {
+  visibility: visible;
+}
+
 
 .row {
   display: flex;
@@ -306,6 +313,14 @@ export default {
   .hover-container, .hover-text {
     font-size: smaller; /* Smaller tooltips */
   }
+
+  .icon-section .icon-row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
 
   .image-thumbnail {
     width: 80%; /* Larger view for thumbnails on small screens */

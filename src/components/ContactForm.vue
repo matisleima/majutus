@@ -32,7 +32,7 @@
             <option value="house1">Ait</option>
             <option value="house2">Kõlgus</option>
             <option value="house3">Puhkemaja</option>
-            <option value="house4">Suvemajake</option>
+            <option value="house4">Must kast</option>
             <option value="house5">Glämping</option>
           </select>
         </div>

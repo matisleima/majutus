@@ -1,7 +1,7 @@
 import {createRouter, createWebHashHistory} from 'vue-router';
 import HomeView from "@/views/HomeView.vue";
 import AitView from "@/views/AitView.vue";
-import SuvemajakeView from "@/views/SuvemajakeView.vue";
+import MustKastView from "@/views/MustKastView.vue";
 import KolgusView from "@/views/KolgusView.vue";
 import PuhkemajaView from "@/views/PuhkemajaView.vue";
 import GlampingView from "@/views/GlampingView.vue";
@@ -28,9 +28,9 @@ const routes = [
         component: PuhkemajaView
     },
     {
-        path: '/suvemajake',
-        name: 'suvemajakeRoute',
-        component: SuvemajakeView
+        path: '/mustkast',
+        name: 'mustKastRoute',
+        component: MustKastView
     },
     {
         path: '/glamping',
