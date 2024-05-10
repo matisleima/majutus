@@ -44,4 +44,9 @@ const router = createRouter({
     routes
 });
 
+// Example with Vue.js
+router.afterEach((to, from) => {
+    window.scrollTo(0, 0);
+});
+
 export default router;

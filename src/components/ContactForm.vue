@@ -29,11 +29,11 @@
           <label for="house" class="form-label" style="font-size: 20px;">Millises majas soovid ööbida?</label>
           <select class="form-select" id="house" v-model="selectedHouse">
             <option selected>Vali...</option>
-            <option value="house1">Ait</option>
-            <option value="house2">Kõlgus</option>
-            <option value="house3">Plagandõ Puhkemaja</option>
-            <option value="house4">Must kast</option>
-            <option value="house5">Glämping</option>
+            <option value="Ait">Ait</option>
+            <!--            <option value="house2">Kuninglik kõlgus</option>-->
+            <option value="Plagandõ puhkemaja">Plagandõ puhkemaja</option>
+            <option value="Must kast">Must kast</option>
+            <option value="Glämping">Glämping</option>
           </select>
         </div>
       </div>
@@ -71,6 +71,8 @@
 </template>
 
 <script>
+import emailjs from 'emailjs-com';
+
 export default {
   name: 'ContactForm',
   data() {
@@ -81,20 +83,13 @@ export default {
       selectedHouse: '',
       arrivalDate: '',
       departureDate: '',
-      minDepartureDate: '',
       additionalInfo: '',
       today: new Date().toISOString().substr(0, 10) // Get today's date in YYYY-MM-DD format
     };
   },
-  mounted() {
-    this.minDepartureDate = this.today; // Initially set the minimal departure date to today
-  },
   methods: {
-    updateDepartureDateMin() {
-      this.minDepartureDate = this.arrivalDate; // Update the minimal departure date
-    },
     submitForm() {
-      console.log({
+      const formParams = {
         name: this.name,
         email: this.email,
         phone: this.phone,
@@ -102,8 +97,23 @@ export default {
         arrivalDate: this.arrivalDate,
         departureDate: this.departureDate,
         additionalInfo: this.additionalInfo
-      });
-      alert('Päring saadetud!');
+      };
+      emailjs.send('service_4hbrhod', 'template_rbolduo', formParams, '8krq05KIeTitbWwT8')
+          .then((response) => {
+            alert('Broneeringusoov on saadetud! Vastame esimesel võimalusel.');
+          }, (err) => {
+            alert('Broneeringusoovi saatmine ebaõnnestus...');
+          });
+      this.resetForm();
+    },
+    resetForm() {
+      this.name = '';
+      this.email = '';
+      this.phone = '';
+      this.selectedHouse = '';
+      this.arrivalDate = '';
+      this.departureDate = '';
+      this.additionalInfo = '';
     }
   }
 }

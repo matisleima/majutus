@@ -182,7 +182,7 @@ export default {
 
 <style scoped>
 .background-section {
-  height: 80vh;
+  height: 70vh;
   background: url('@/assets/kolgus/kolgus main.webp') no-repeat center center / cover;
   min-height: 200px;
 }
@@ -193,7 +193,7 @@ export default {
   padding: 20px;
   background: white;
   height: 34vh;
-  margin-bottom: 180px; /* Adjust this value as needed for more or less space */
+  margin-bottom: 50px; /* Adjust this value as needed for more or less space */
 }
 
 .calendar {
