@@ -3,8 +3,8 @@ import HomeView from "@/views/HomeView.vue";
 import AitView from "@/views/AitView.vue";
 import MustKastView from "@/views/MustKastView.vue";
 import KolgusView from "@/views/KolgusView.vue";
-import PuhkemajaView from "@/views/PuhkemajaView.vue";
 import GlampingView from "@/views/GlampingView.vue";
+import PlagandoPuhkemajaView from "@/views/PlagandoPuhkemajaView.vue";
 
 const routes = [
     {
@@ -23,9 +23,9 @@ const routes = [
         component: KolgusView
     },
     {
-        path: '/puhkemaja',
-        name: 'puhkemajaRoute',
-        component: PuhkemajaView
+        path: '/plagando-puhkemaja',
+        name: 'plagandoPuhkemajaRoute',
+        component: PlagandoPuhkemajaView
     },
     {
         path: '/mustkast',

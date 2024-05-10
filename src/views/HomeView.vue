@@ -18,7 +18,7 @@
           </router-link>
         </div>
         <div class="col">
-          <router-link to="/puhkemaja" class="col">
+          <router-link to="/plagando-puhkemaja" class="col">
             <h1>Plagandõ<br>puhkemaja</h1>
           </router-link>
         </div>
@@ -38,7 +38,7 @@
     </div>
     <div class="section scroll-bg">
       <div class="col">
-        <img src="../assets/map1.webp" height="841" width="951"/></div>
+        <img src="../assets/muu/map1.webp" width="700"/></div>
 
       <div class="col">
         <p>35km raadiuses on hulk unikaalseid kohti: Võru linn, Vastseliina piiskopilinnus, Setomaa süda Obinitsa,
@@ -56,9 +56,9 @@
 
 
 <script>
-import welcomeImage from '@/assets/welcome2.webp';
-import telkImage from '@/assets/glamping.webp';
-import saunImage from '@/assets/saun3.webp';
+import welcomeImage from '@/assets/ait/welcome2.webp';
+import telkImage from '@/assets/glamping/glamping.webp';
+import saunImage from '@/assets/util/saun3.webp';
 import ContactForm from "@/components/ContactForm.vue";
 
 export default {

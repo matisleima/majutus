@@ -9,7 +9,7 @@
     </div>
     <div class="info-section">
 
-      <div class="col m-3">
+      <div class="col m-3" >
         <div class="calendar row">
           <ait-calendar></ait-calendar>
         </div>
@@ -93,6 +93,13 @@
                    width="50" height="50"/>
               <div class="hover-text">Ujumisvõimalus</div>
             </div>
+            <!--SAUN-->
+            <div class="hover-container">
+              <img src="@/assets/icons/sauna.png"
+                   class="icon-available"
+                   width="50" height="50"/>
+              <div class="hover-text">Saun</div>
+            </div>
           </div>
         </div>
       </div>
@@ -126,14 +133,14 @@ export default {
   data() {
     return {
       images: [
-        new URL('@/assets/aitIn2.webp', import.meta.url).href,
-        new URL('@/assets/aitIn1.webp', import.meta.url).href,
-        new URL('@/assets/aitIn3.webp', import.meta.url).href,
-        new URL('@/assets/saun1.webp', import.meta.url).href,
-        new URL('@/assets/saun2.webp', import.meta.url).href,
-        new URL('@/assets/saun3.webp', import.meta.url).href,
-        new URL('@/assets/kemmerg1.webp', import.meta.url).href,
-        new URL('@/assets/kemmerg2.webp', import.meta.url).href
+        new URL('@/assets/ait/aitIn2.webp', import.meta.url).href,
+        new URL('@/assets/ait/aitIn1.webp', import.meta.url).href,
+        new URL('@/assets/ait/aitIn3.webp', import.meta.url).href,
+        new URL('@/assets/util/saun1.webp', import.meta.url).href,
+        new URL('@/assets/util/saun2.webp', import.meta.url).href,
+        new URL('@/assets/util/saun3.webp', import.meta.url).href,
+        new URL('@/assets/util/kemmerg1.webp', import.meta.url).href,
+        new URL('@/assets/util/kemmerg2.webp', import.meta.url).href
       ],
       currentIndex: 0,
       showLightbox: false
@@ -181,7 +188,7 @@ export default {
 <style scoped>
 .background-section {
   height: 66vh;
-  background: url('@/assets/ait.webp') no-repeat center center / cover;
+  background: url('@/assets/ait/ait.webp') no-repeat center center / cover;
   min-height: 200px;
 }
 

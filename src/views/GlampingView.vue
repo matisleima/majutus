@@ -1,18 +1,33 @@
 <template>
   <div>
-    <div class="background-section"></div>
+    <div class="background-section">
+
+      <button @click="goBack" style="background: transparent; border: none; color: white; font-size: 20px;">
+        Tagasi
+      </button>
+
+    </div>
     <div class="info-section">
-      <div class="description">
-        <div class="row">
-          <h3>Luksus looduse keskel</h3>
-          <p>Ruumikas glämpingutelk on neile, kes soovivad ööbida ühtaegu looduse keskel,
-            aga mugavas soojas voodis. Uinutav tuulekohin ja salapärased loodushääled, mida
-            seinad ei summuta, on Luha talu glämpingugtelgist teinud uutmoodi ööbimiskogemuse
-            otsijate lemmikpaiga!</p>
+
+      <div class="col m-3" >
+        <div class="calendar row">
+          <glamping-calendar></glamping-calendar>
         </div>
-        <div class="row" style="display: flex; justify-content: center; align-items: center;">
+        <div class="row">
+          <button type="button" class="btn btn-success mt-3">Mine broneerima!</button>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="row" style="margin-bottom: 15px;">
+          <p style="text-align: justify">See on hubane glampingutelk, milles on kõik vajalik - lai
+            voodi, linad, tekid, padjad, rätikud. Mugavust lisavad elekter, kott-toolid ja
+            telgiesine terrass. Saun ja puhta karge veega tiik teevad siin peatumisest täiusliku
+            puhkuse.</p>
+        </div>
+        <div class="icon-section" style="display: flex; justify-content: center; align-items: center;">
           <!--MUGAVUSED-->
-          <div>
+          <div class="row icon-row">
             <!--ELEKTER-->
             <div class="hover-container">
               <img src="@/assets/icons/plug-solid.svg"
@@ -76,34 +91,104 @@
                    width="50" height="50"/>
               <div class="hover-text">Ujumisvõimalus</div>
             </div>
+            <!--SAUN-->
+            <div class="hover-container">
+              <img src="@/assets/icons/sauna.png"
+                   class="icon-available"
+                   width="50" height="50"/>
+              <div class="hover-text">Saun</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="calendar">
-        <vue-cal :views="['month']" style="height: 300px; width: 100%; border: 1px solid #ccc;"></vue-cal>
+      <div class="col">
+        <div class="row m-4" style="display: flex; justify-content: center; align-items: center;">
+          <div v-for="(image, index) in images" :key="index" class="thumbnail m-2" @click="openLightbox(index)">
+            <img :src="image" alt="Pisipilt" class="image-thumbnail">
+          </div>
+        </div>
+        <div v-if="showLightbox" class="lightbox" @click.self="closeLightbox">
+          <span class="nav left" @click.stop="previousImage">&lt;</span>
+          <img :src="images[currentIndex]" alt="Suur pilt" class="full-size-image">
+          <span class="nav right" @click.stop="nextImage">&gt;</span>
+          <span class="close" @click.stop="closeLightbox">&times;</span>
+        </div>
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import VueCal from 'vue-cal'
-import 'vue-cal/dist/vuecal.css'
+import GlampingCalendar from "@/components/GlampingCalendar.vue";
 
 export default {
-  name: 'KolgusView',
   components: {
-    VueCal
+    GlampingCalendar  // This registers MyCalendar for use in this component's template
+  },
+  name: 'AitView',
+  data() {
+    return {
+      images: [
+        new URL('@/assets/glamping/2.webp', import.meta.url).href,
+        new URL('@/assets/glamping/3.webp', import.meta.url).href,
+        new URL('@/assets/glamping/6.webp', import.meta.url).href,
+        new URL('@/assets/glamping/20230713_162334.webp', import.meta.url).href,
+        new URL('@/assets/util/saun1.webp', import.meta.url).href,
+        new URL('@/assets/util/saun2.webp', import.meta.url).href,
+        new URL('@/assets/util/saun3.webp', import.meta.url).href,
+        new URL('@/assets/util/kemmerg1.webp', import.meta.url).href,
+        // new URL('@/assets/util/kemmerg2.webp', import.meta.url).href
+      ],
+      currentIndex: 0,
+      showLightbox: false
+    };
+  },
+  methods: {
+    openLightbox(index) {
+      this.currentIndex = index;
+      this.showLightbox = true;
+      document.addEventListener('keydown', this.handleKey);
+    },
+    closeLightbox() {
+      this.showLightbox = false;
+      document.removeEventListener('keydown', this.handleKey);
+    },
+    nextImage() {
+      if (this.currentIndex < this.images.length - 1) {
+        this.currentIndex++;
+      }
+    },
+    previousImage() {
+      if (this.currentIndex > 0) {
+        this.currentIndex--;
+      }
+    },
+    handleKey(e) {
+      if (e.key === 'ArrowRight') {
+        this.nextImage();
+      } else if (e.key === 'ArrowLeft') {
+        this.previousImage();
+      } else if (e.key === 'Escape') {
+        this.closeLightbox();
+      }
+    },
+    goBack() {
+      this.$router.back();
+    }
   }
 }
 </script>
 
 
+
+
 <style scoped>
 .background-section {
   height: 66vh;
-  background: url('@/assets/glamping.png') no-repeat center center / cover;
+  background: url('@/assets/glamping/glamping.webp') no-repeat center center / cover;
+  min-height: 200px;
 }
 
 .info-section {
@@ -112,18 +197,11 @@ export default {
   padding: 20px;
   background: white;
   height: 34vh;
-}
-
-.description, .calendar {
-  flex: 1;
-}
-
-.description {
-  padding-right: 20px; /* Adds some space between the text and the calendar */
+  margin-bottom: 180px; /* Adjust this value as needed for more or less space */
 }
 
 .calendar {
-  padding-left: 20px; /* Adds some space between the calendar and the text */
+  padding-left: 0px; /* Adds some space between the calendar and the text */
 }
 
 .icon-available {
@@ -137,7 +215,7 @@ export default {
   width: 50px; /* This ensures the width is the same for all icons */
   height: 50px; /* This ensures the height is the same for all icons */
   margin: 5px; /* Adjust the margin as needed to control spacing */
-  filter: drop-shadow(0 0 5px #b10000); /* Green glow */
+  filter: drop-shadow(0 0 5px #b10000); /* Red glow */
 }
 
 .hover-container {
@@ -150,8 +228,6 @@ export default {
   position: absolute;
   bottom: 100%;
   width: fit-content;
-
-  transform: translate(0%, 0px);
   background-color: #333;
   color: #fff;
   padding: 8px;
@@ -162,4 +238,112 @@ export default {
 .hover-container:hover .hover-text {
   visibility: visible;
 }
+
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  cursor: pointer;
+  transition: transform 0.7s ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.5); /* Adjusted for mobile usability */
+}
+
+.image-thumbnail {
+  height: 60px; /* Adjust based on your design needs */
+  width: auto;
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000; /* High z-index to ensure it covers other content */
+}
+
+.full-size-image {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  z-index: 1001; /* Ensure close button is above the lightbox image */
+}
+
+.nav {
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav.left {
+  left: 10px;
+}
+
+.nav.right {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .background-section, .icon-available, .icon-unavailable {
+    height: auto; /* Adjust heights for smaller screens */
+  }
+
+  .info-section {
+    flex-direction: column; /* Stack sections vertically */
+    height: auto;
+  }
+
+  .hover-container, .hover-text {
+    font-size: smaller; /* Smaller tooltips */
+  }
+
+  .icon-section .icon-row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+
+  .image-thumbnail {
+    width: 80%; /* Larger view for thumbnails on small screens */
+    margin: auto; /* Centering thumbnails */
+  }
+
+  .btn {
+    padding: 15px 30px; /* Larger button for easier tapping */
+  }
+
+  body {
+    font-size: 16px; /* Larger font size for readability */
+  }
+
+  input, select, button {
+    font-size: 16px; /* Larger form elements */
+  }
+}
 </style>
+

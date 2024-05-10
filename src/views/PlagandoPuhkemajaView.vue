@@ -10,18 +10,23 @@
     <div class="info-section">
 
       <div class="col m-3" >
-<!--        <div class="calendar row">-->
-<!--          <ait-calendar></ait-calendar>-->
-<!--        </div>-->
-<!--        <div class="row">-->
-<!--          <button type="button" class="btn btn-success mt-3">Mine broneerima!</button>-->
-<!--        </div>-->
+        <div class="calendar row">
+          <plagando-calendar></plagando-calendar>
+        </div>
+        <div class="row">
+          <button type="button" class="btn btn-success mt-3">Mine broneerima!</button>
+        </div>
       </div>
 
       <div class="col">
-        <div class="row" style="margin-bottom: 15px; margin-top: 15px">
-          <p style="text-align: justify">Luha talu kõlguse kallal käib kibe töö ja peagi saab selles
-          kõigi mugavustega kahekordses puhkemajas kuninglikult lõõgastuda.</p>
+        <div class="row" style="margin-bottom: 15px;">
+          <p style="text-align: justify">Maja on väga sobilik valik nädalavahetuse veetmiseks või isegi
+            pikemaks puhkuseks Setomaal. Siin on kõik vajalik – külmkapiga köök, tualett, dušš ja
+            pesumasin ning eraldi magamistuba. Avaras hoovis saab mängida palli, grillida või nautida
+            lihtsalt maal olemist.
+            Palksaun puuküttega kerisega ja selgeveeline tiik võivad tekitada sõltuvust...
+            Pikemal peatumisel Plagandõ puhketalu hea lähtepunkt Setomaa, Võromaa ja
+            Põhja-Läti külastamiseks.</p>
         </div>
         <div class="icon-section" style="display: flex; justify-content: center; align-items: center;">
           <!--MUGAVUSED-->
@@ -101,41 +106,46 @@
       </div>
 
       <div class="col">
-<!--        <div class="row m-4" style="display: flex; justify-content: center; align-items: center;">-->
-<!--          <div v-for="(image, index) in images" :key="index" class="thumbnail m-2" @click="openLightbox(index)">-->
-<!--            <img :src="image" alt="Pisipilt" class="image-thumbnail">-->
-<!--          </div>-->
-<!--        </div>-->
-<!--        <div v-if="showLightbox" class="lightbox" @click.self="closeLightbox">-->
-<!--          <span class="nav left" @click.stop="previousImage">&lt;</span>-->
-<!--          <img :src="images[currentIndex]" alt="Suur pilt" class="full-size-image">-->
-<!--          <span class="nav right" @click.stop="nextImage">&gt;</span>-->
-<!--          <span class="close" @click.stop="closeLightbox">&times;</span>-->
-<!--        </div>-->
+        <div class="row m-4" style="display: flex; justify-content: center; align-items: center;">
+          <div v-for="(image, index) in images" :key="index" class="thumbnail m-2" @click="openLightbox(index)">
+            <img :src="image" alt="Pisipilt" class="image-thumbnail">
+          </div>
+        </div>
+        <div v-if="showLightbox" class="lightbox" @click.self="closeLightbox">
+          <span class="nav left" @click.stop="previousImage">&lt;</span>
+          <img :src="images[currentIndex]" alt="Suur pilt" class="full-size-image">
+          <span class="nav right" @click.stop="nextImage">&gt;</span>
+          <span class="close" @click.stop="closeLightbox">&times;</span>
+        </div>
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import AitCalendar from "@/components/AitCalendar.vue";
+import PlagandoCalendar from "@/components/PlagandoCalendar.vue";
 
 export default {
   components: {
-    AitCalendar  // This registers MyCalendar for use in this component's template
+    PlagandoCalendar  // This registers MyCalendar for use in this component's template
   },
-  name: 'AitView',
+  name: 'PlagandoPuhkemajaView',
   data() {
     return {
       images: [
-        new URL('@/assets/ait/aitIn2.webp', import.meta.url).href,
-        new URL('@/assets/ait/aitIn1.webp', import.meta.url).href,
-        new URL('@/assets/ait/aitIn3.webp', import.meta.url).href,
-        new URL('@/assets/util/saun1.webp', import.meta.url).href,
-        new URL('@/assets/util/saun2.webp', import.meta.url).href,
-        new URL('@/assets/util/saun3.webp', import.meta.url).href,
-        new URL('@/assets/util/kemmerg1.webp', import.meta.url).href,
-        new URL('@/assets/util/kemmerg2.webp', import.meta.url).href
+        new URL('@/assets/plagando/1.webp', import.meta.url).href,
+        new URL('@/assets/plagando/2.webp', import.meta.url).href,
+        new URL('@/assets/plagando/3.webp', import.meta.url).href,
+        new URL('@/assets/plagando/4.webp', import.meta.url).href,
+        new URL('@/assets/plagando/5.webp', import.meta.url).href,
+        new URL('@/assets/plagando/6.webp', import.meta.url).href,
+        new URL('@/assets/plagando/7.webp', import.meta.url).href,
+        new URL('@/assets/plagando/8.webp', import.meta.url).href,
+        new URL('@/assets/plagando/9.webp', import.meta.url).href,
+        new URL('@/assets/plagando/plagando-saun-1.webp', import.meta.url).href,
+        new URL('@/assets/plagando/plagando-saun-2.webp', import.meta.url).href,
+        new URL('@/assets/plagando/plagando-saun-3.webp', import.meta.url).href,
       ],
       currentIndex: 0,
       showLightbox: false
@@ -182,9 +192,9 @@ export default {
 
 <style scoped>
 .background-section {
-  height: 80vh;
-  background: url('@/assets/kolgus/kolgus main.webp') no-repeat center center / cover;
-  min-height: 200px;
+  height: 90vh;
+  background: url('@/assets/plagando/plagando-main.webp') no-repeat center center / cover;
+  min-height: 400px;
 }
 
 .info-section {
