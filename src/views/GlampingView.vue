@@ -14,7 +14,10 @@
           <glamping-calendar></glamping-calendar>
         </div>
         <div class="row">
-          <button type="button" class="btn btn-success mt-3">Mine broneerima!</button>
+<!--          <button type="button" class="btn btn-success mt-3">Mine broneerima!</button>-->
+        </div>
+        <div class="row" style="margin-top: 15px">
+          <h5>Öö alates 52€</h5>
         </div>
       </div>
 

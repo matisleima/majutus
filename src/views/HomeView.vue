@@ -38,12 +38,12 @@
     </div>
     <div class="section scroll-bg">
       <div class="col">
-        <img src="../assets/muu/map1.webp" width="700"/></div>
+        <img src="../assets/muu/map1.webp" width="700" style="margin-top: 20px"/></div>
 
       <div class="col">
-        <p>35km raadiuses on hulk unikaalseid kohti: Võru linn, Vastseliina piiskopilinnus, Setomaa süda Obinitsa,
+        <p><h5> 35km raadiuses on hulk unikaalseid kohti: Võru linn, Vastseliina piiskopilinnus, Setomaa süda Obinitsa,
           Haanja ja Suur Munamägi, Rõuge ning Aluksne ja Põhja-Läti. Luha talu peremees sootska Aarne Leima on
-          sertifitseeritud Setomaa giid ja näitab teile ümbruskonnas heameelega ringi! </p>
+          sertifitseeritud Setomaa giid ja näitab teile ümbruskonnas heameelega ringi!</h5></p>
       </div>
     </div>
     <div class="section fixed-bg" :style="{ backgroundImage: 'url(' + saunImagePath + ')' }">
@@ -83,12 +83,23 @@ export default {
 .section {
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Makes the content scrollable if it overflows */
   justify-content: center;
   align-items: center;
   text-align: center;
   color: white;
   font-size: 24px;
   font-family: "Nirmala UI", sans-serif;
+}
+
+.col img {
+  width: 100%; /* Ensures image is responsive and adjusts according to screen size */
+  height: auto; /* Maintains aspect ratio */
+}
+
+.col p {
+  margin: 10px; /* Adds margin for text for better readability */
 }
 
 .fixed-bg {
@@ -113,5 +124,14 @@ export default {
   color: #00b100; /* Lighter gray color on hover */
   text-decoration: underline; /* Adds underline on hover if desired */
 }
-</style>
 
+@media (min-width: 768px) {
+  .section {
+    flex-direction: row; /* On larger screens, switches to row layout */
+  }
+
+  .col {
+    flex: 1; /* Each column will take equal space */
+  }
+}
+</style>
