@@ -58,7 +58,7 @@
 <script>
 import welcomeImage from '@/assets/ait/welcome2.webp';
 import telkImage from '@/assets/glamping/glamping.webp';
-import saunImage from '@/assets/util/saun3.webp';
+import saunImage from '@/assets/util/tiik-ava.webp';
 import ContactForm from "@/components/ContactForm.vue";
 
 export default {
