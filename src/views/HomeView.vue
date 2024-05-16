@@ -45,6 +45,8 @@
           sertifitseeritud Setomaa giid ja näitab teile ümbruskonnas heameelega ringi!</h5></p>
       </div>
     </div>
+    <div class="section fixed-bg tiik-bg" :style="{ backgroundImage: 'url(' + tiikImagePath + ')' }">
+    </div>
     <div class="section fixed-bg saun-bg" :style="{ backgroundImage: 'url(' + saunImagePath + ')' }">
     </div>
     <div class="section scroll-bg">
@@ -57,7 +59,8 @@
 <script>
 import welcomeImage from '@/assets/ait/welcome2.webp';
 import telkImage from '@/assets/glamping/glamping.webp';
-import saunImage from '@/assets/plagando/plagando-saun-3.webp';
+import tiikImage from '@/assets/util/tiik-ava.webp';
+import saunImage from '@/assets/plagando/plagandosaunava.webp';
 import ContactForm from "@/components/ContactForm.vue";
 
 export default {
@@ -71,7 +74,9 @@ export default {
         backgroundImage: `url(${welcomeImage})`
       },
       aitImagePath: telkImage,
-      saunImagePath: saunImage
+      saunImagePath: saunImage,
+      telkImagePath: telkImage,
+      tiikImagePath: tiikImage
     };
   }
 }
@@ -135,7 +140,11 @@ export default {
   }
 
   .saun-bg {
-    background-position: 63% center; /* Adjust as needed */
+    background-position: 63% center; /* Specific background position for mobile */
+  }
+
+  .tiik-bg {
+    display: none; /* Hide desktop background on mobile */
   }
 }
 
@@ -146,6 +155,15 @@ export default {
 
   .col {
     flex: 1; /* Each column will take equal space */
+  }
+
+  .saun-bg {
+    display: none; /* Hide mobile background on desktop */
+  }
+
+  .tiik-bg {
+    display: block; /* Show desktop background on larger screens */
+    background-position: center; /* Adjust as needed for desktop */
   }
 }
 </style>
