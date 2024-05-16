@@ -6,7 +6,7 @@
       </h1>
     </div>
     <div class="section scroll-bg">
-      <div class="row">
+      <div class="row link-stack">
         <div class="col">
           <router-link to="/ait" class="col">
             <h1>Ait</h1>
@@ -36,13 +36,18 @@
     </div>
     <div class="section fixed-bg ait-bg" :style="{ backgroundImage: 'url(' + aitImagePath + ')' }">
     </div>
-    <div class="section scroll-bg">
-      <div class="col">
-        <img src="../assets/muu/map1.webp" width="700" style="margin-top: 20px"/></div>
-      <div class="col">
-        <p><h5> 35km raadiuses on hulk unikaalseid kohti: Võru linn, Vastseliina piiskopilinnus, Setomaa süda Obinitsa,
-          Haanja ja Suur Munamägi, Rõuge ning Aluksne ja Põhja-Läti. Luha talu peremees sootska Aarne Leima on
-          sertifitseeritud Setomaa giid ja näitab teile ümbruskonnas heameelega ringi!</h5></p>
+    <div class="section scroll-bg content-section">
+      <div class="content-container">
+        <div class="content-image">
+          <img src="../assets/muu/map1.webp" alt="Map"/>
+        </div>
+        <div class="content-text">
+          <p>
+            35km raadiuses on hulk unikaalseid kohti: Võru linn, Vastseliina piiskopilinnus, Setomaa süda Obinitsa,
+            Haanja ja Suur Munamägi, Rõuge ning Aluksne ja Põhja-Läti. Luha talu peremees sootska Aarne Leima on
+            sertifitseeritud Setomaa giid ja näitab teile ümbruskonnas heameelega ringi!
+          </p>
+        </div>
       </div>
     </div>
     <div class="section fixed-bg tiik-bg" :style="{ backgroundImage: 'url(' + tiikImagePath + ')' }">
@@ -118,7 +123,6 @@ export default {
   color: black;
 }
 
-/* Targeting <a> tags directly within .row */
 .row a {
   color: #666; /* Dark gray color */
   text-decoration: none; /* Removes underline */
@@ -127,6 +131,37 @@ export default {
 .row a:hover {
   color: #00b100; /* Lighter gray color on hover */
   text-decoration: underline; /* Adds underline on hover if desired */
+}
+
+.content-section {
+  padding: 10px; /* Reduced padding */
+  width: 100%;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column; /* Default to column for mobile */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0; /* Remove default padding */
+}
+
+.content-image, .content-text {
+  flex: 1;
+  margin: 5px; /* Reduced margin */
+}
+
+.content-image img {
+  width: 100%;
+  height: auto;
+}
+
+.content-text {
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  text-align: center; /* Center text */
 }
 
 /* Specific background adjustments for mobile */
@@ -145,6 +180,22 @@ export default {
 
   .tiik-bg {
     display: none; /* Hide desktop background on mobile */
+  }
+
+  .content-container {
+    padding: 0; /* Ensure no padding on mobile */
+  }
+
+  .content-image, .content-text {
+    margin: 10px 0; /* Adjust vertical margin for mobile */
+  }
+
+  .link-stack {
+    flex-direction: column; /* Stack links vertically on mobile */
+  }
+
+  .link-stack .col {
+    margin-bottom: 10px; /* Add margin between columns on mobile */
   }
 }
 
@@ -165,5 +216,24 @@ export default {
     display: block; /* Show desktop background on larger screens */
     background-position: center; /* Adjust as needed for desktop */
   }
+
+  .content-container {
+    flex-direction: row; /* Row layout for desktop */
+    align-items: center; /* Center vertically */
+    padding: 0; /* Ensure no padding on desktop */
+  }
+
+  .content-image, .content-text {
+    margin: 10px; /* Adjust margins for better spacing on desktop */
+  }
+
+  .link-stack {
+    flex-direction: row; /* Keep links horizontal on desktop */
+  }
+
+  .link-stack .col {
+    margin-bottom: 0; /* Remove bottom margin for columns on desktop */
+  }
 }
 </style>
+
