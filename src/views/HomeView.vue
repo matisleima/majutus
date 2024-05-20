@@ -1,52 +1,66 @@
 <template>
   <div>
     <div class="section fixed-bg welcome-bg" :style="backgroundImageStyle">
-      <h1 style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.9);">
-        Kuninglik puhkus Setomaal
+      <h1 style="color: #ffffff; text-shadow: 4px 2px 4px rgba(0,0,0,0.9);">
+        Sootska Leima Luha Puhketalu
       </h1>
     </div>
     <div class="section scroll-bg">
-      <div class="row link-stack">
-        <div class="col">
-          <router-link to="/ait" class="col">
-            <h1>Ait</h1>
-          </router-link>
-        </div>
-        <div class="col">
-          <router-link to="/kolgus" class="col">
-            <h1>Kuninglik<br>kõlgus</h1>
-          </router-link>
-        </div>
-        <div class="col">
-          <router-link to="/plagando-puhkemaja" class="col">
-            <h1>Plagandõ<br>puhkemaja</h1>
-          </router-link>
-        </div>
-        <div class="col">
-          <router-link to="/mustKast" class="col">
-            <h1>Must<br>kast</h1>
-          </router-link>
-        </div>
-        <div class="col">
-          <router-link to="/glamping" class="col">
-            <h1>Glämping</h1>
-          </router-link>
+
+      <div class="row-description">
+        <h1 style="margin-bottom: 30px">Kuninglik puhkus Setomaal</h1>
+        <div style="text-align: center">
+          <p>Asume Setomaa edelanurgas, ajaloolise Riia-Pihkva kivitee äärses Leimani külas.
+            Sadakond aastat tagasi kui ka Setomaal tekkisid pärast maareformi uued talukohad,
+            ehitasid kolm venda Andrei, Fjodor ja Paul oma majad kõrvuti ja sellest sai ühine
+            Luha talu. Selline kõrvuti elamine ja ühise maa jagamine ja majandamine oli olnud
+            setodele omane sajandeid.</p>
+          <p>See unikaalne talude kompleks on hästi säilinud ja meie eesmärk on
+            seda hoida ning arendamisel järgida vanade hoonete joonist.
+            Kutsume teid siia puhkama, jagame teiega seda lihtsat talumiljööd. Siin on ilusat
+            loodust, rahu ja piisavalt privaatsust igale külalisele. Võimalik, et selline ongi
+            üks kuninglik puhkus.</p>
         </div>
       </div>
+
+      <div class="row-houses link-stack" style="margin-bottom: 20px">
+        <router-link to="/ait">
+          <img src="../assets/ait/ait.webp" height="100"/>
+          <h4>Ait</h4>
+        </router-link>
+        <router-link to="/kolgus">
+          <img src="../assets/kolgus/kolgus main.webp" height="100"/>
+          <h4>Kõlgus</h4>
+        </router-link>
+        <router-link to="/plagando-puhkemaja">
+          <img src="../assets/plagando/plagando-main.webp" height="100"/>
+          <h4>Plagandõ<br>puhkemaja</h4>
+        </router-link>
+        <router-link to="/mustKast">
+          <img src="../assets/must_kast/suvemajake.webp" height="100"/>
+          <h4>Must kast</h4>
+        </router-link>
+        <router-link to="/glamping">
+          <img src="../assets/glamping/glamping-tuledega.jpg" height="100"/>
+          <h4>Glämping</h4>
+        </router-link>
+      </div>
+
     </div>
     <div class="section fixed-bg ait-bg" :style="{ backgroundImage: 'url(' + aitImagePath + ')' }">
     </div>
     <div class="section scroll-bg content-section">
-      <div class="content-container">
-        <div class="content-image">
+      <div class="row row-tourism">
+        <div class="col col-map">
           <img src="../assets/muu/map1.webp" alt="Map"/>
         </div>
-        <div class="content-text">
-          <p>
-            35km raadiuses on hulk unikaalseid kohti: Võru linn, Vastseliina piiskopilinnus, Setomaa süda Obinitsa,
-            Haanja ja Suur Munamägi, Rõuge ning Aluksne ja Põhja-Läti. Luha talu peremees sootska Aarne Leima on
-            sertifitseeritud Setomaa giid ja näitab teile ümbruskonnas heameelega ringi!
-          </p>
+        <div class="col col-tourism-text">
+          <p>Siin puhates on äärmiselt lihtne teha väljasõite Setomaale, Võromaale ja Põhja-Lätimaale.
+            Meist kõigest 35 kilomeetri raadiusse jäävad Vastseliina piiskopilinnus, Setomaa üks
+            keskuseid Obinitsa, Piusa koopad, Võru linn, Haanja ning Suur Munamägi, Rõuge oma järvede
+            ja Ööbikuoruga, aga ka võrratu Aluksne linn Lätimaal.</p>
+          <p>Luha talust saate ammendavat turismiinfot ja kuna sootskast talu peremees on ka Setomaa giid, siis on
+            võimalik ka koos temaga ümbruskonda avastada.</p>
         </div>
       </div>
     </div>
@@ -87,10 +101,9 @@ export default {
 }
 </script>
 
-
 <style scoped>
 .section {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow: hidden; /* Makes the content scrollable if it overflows */
@@ -102,9 +115,27 @@ export default {
   font-family: "Nirmala UI", sans-serif;
 }
 
+img {
+  border-radius: 20px; /* Rounds the corners of all images */
+}
+
+
 .col img {
   width: 100%; /* Ensures image is responsive and adjusts according to screen size */
   height: auto; /* Maintains aspect ratio */
+}
+
+.col-tourism-text {
+  display: flex;           /* Enables flexbox */
+  flex-direction: column;  /* Stacks the flex items vertically */
+  justify-content: center; /* Centers the content vertically in the container */
+}
+
+.row-houses {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap to the next line as needed */
+  justify-content: space-around; /* Evenly spaces the links with space at both ends */
+  margin-bottom: 20px;
 }
 
 .col p {
@@ -129,7 +160,7 @@ export default {
 }
 
 .row a:hover {
-  color: #00b100; /* Lighter gray color on hover */
+  color: #363636; /* Lighter gray color on hover */
   text-decoration: underline; /* Adds underline on hover if desired */
 }
 
@@ -138,31 +169,36 @@ export default {
   width: 100%;
 }
 
-.content-container {
-  display: flex;
-  flex-direction: column; /* Default to column for mobile */
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 0; /* Remove default padding */
-}
-
-.content-image, .content-text {
-  flex: 1;
-  margin: 5px; /* Reduced margin */
-}
-
 .content-image img {
   width: 100%;
   height: auto;
 }
 
-.content-text {
-  display: flex;
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
-  text-align: center; /* Center text */
+.link-stack a {
+  color: #000000; /* Dark gray color */
+  text-decoration: none; /* Removes underline */
+  margin-right: 20px;
+  margin-left: 20px;
 }
+
+.link-stack a:hover {
+  color: #939191; /* Lighter gray color on hover */
+  text-decoration: underline; /* Adds underline on hover */
+}
+
+.link-stack h2 {
+  margin: 20px 0;
+}
+
+.router-link h2 {
+  margin: 10px 0; /* Adds vertical spacing for each item */
+  text-align: center; /* Centers the text within each link */
+}
+
+.row-description {
+  margin: 20px 20px 40px;
+}
+
 
 /* Specific background adjustments for mobile */
 @media (max-width: 767px) {
@@ -182,32 +218,16 @@ export default {
     display: none; /* Hide desktop background on mobile */
   }
 
-  .content-container {
-    padding: 0; /* Ensure no padding on mobile */
+  .row-houses {
+    flex-direction: column; /* Stacks the links vertically on small screens */
   }
 
-  .content-image, .content-text {
-    margin: 10px 0; /* Adjust vertical margin for mobile */
-  }
-
-  .link-stack {
-    flex-direction: column; /* Stack links vertically on mobile */
-  }
-
-  .link-stack .col {
-    margin-bottom: 10px; /* Add margin between columns on mobile */
+  .row-tourism {
+    flex-direction: column; /* Stacks the links vertically on small screens */
   }
 }
 
 @media (min-width: 768px) {
-  .section {
-    flex-direction: row; /* On larger screens, switches to row layout */
-  }
-
-  .col {
-    flex: 1; /* Each column will take equal space */
-  }
-
   .saun-bg {
     display: none; /* Hide mobile background on desktop */
   }
@@ -217,23 +237,10 @@ export default {
     background-position: center; /* Adjust as needed for desktop */
   }
 
-  .content-container {
-    flex-direction: row; /* Row layout for desktop */
-    align-items: center; /* Center vertically */
-    padding: 0; /* Ensure no padding on desktop */
+  .content-image img {
+    width: auto; /* Keeps the original width of the image */
+    max-width: 100%; /* Ensures the image does not overflow its container */
   }
 
-  .content-image, .content-text {
-    margin: 10px; /* Adjust margins for better spacing on desktop */
-  }
-
-  .link-stack {
-    flex-direction: row; /* Keep links horizontal on desktop */
-  }
-
-  .link-stack .col {
-    margin-bottom: 0; /* Remove bottom margin for columns on desktop */
-  }
 }
 </style>
-

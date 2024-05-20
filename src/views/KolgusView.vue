@@ -20,8 +20,8 @@
 
       <div class="col">
         <div class="row" style="margin-bottom: 15px; margin-top: 15px">
-          <p style="text-align: justify">Luha talu kõlguse kallal käib kibe töö ja peagi saab selles
-          kõigi mugavustega kahekordses puhkemajas kuninglikult lõõgastuda.</p>
+          <p style="text-align: justify">Luha talu kõlgus on valmimas. Sellest palkhoonest saab
+            kõigi mugavustega puhkemaja, kus saab peatuda aastaringi.</p>
         </div>
         <div class="icon-section" style="display: flex; justify-content: center; align-items: center;">
           <!--MUGAVUSED-->
