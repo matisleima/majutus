@@ -9,12 +9,13 @@
     </div>
     <div class="info-section">
 
-      <div class="col m-3" >
+      <div class="col m-3">
         <div class="calendar row">
           <ait-calendar></ait-calendar>
         </div>
         <div class="row">
-<!--          <button type="button" class="btn btn-success mt-3">Mine broneerima!</button>-->
+          <button type="button" class="btn btn-success mt-3" @click="selectHouseAndRedirect('Ait')">Mine broneerima!
+          </button>
         </div>
         <div class="row" style="margin-top: 15px">
           <h5>Öö alates 58€</h5>
@@ -103,6 +104,7 @@
                    width="50" height="50"/>
               <div class="hover-text">Saun</div>
             </div>
+            <h6>Saadaval mugavused on märgitud roheliselt</h6>
           </div>
         </div>
       </div>
@@ -127,6 +129,7 @@
 
 <script>
 import AitCalendar from "@/components/AitCalendar.vue";
+import router from "@/router/index.js";
 
 export default {
   components: {
@@ -178,14 +181,16 @@ export default {
         this.closeLightbox();
       }
     },
+    selectHouseAndRedirect() {
+      sessionStorage.setItem('selectedHouse', 'Ait')
+      router.push({name: 'homeRoute'})
+    },
     goBack() {
       this.$router.back();
     }
   }
 }
 </script>
-
-
 
 
 <style scoped>

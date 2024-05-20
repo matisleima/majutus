@@ -1,6 +1,6 @@
 <template>
-  <div class="container mt-4">
-    <h2>Kuninglik puhkus ootab!</h2>
+  <div id="contactForm" class="container mt-4">
+    <h2 style="margin-bottom: 40px">Kuninglik puhkus ootab!</h2>
     <form @submit.prevent="submitForm">
       <!-- Name field -->
       <div class="mb-3 row justify-content-center form-group">
@@ -138,6 +138,9 @@ export default {
   },
   mounted() {
     this.minDepartureDate = this.today;
+    if (sessionStorage.getItem('selectedHouse')) {
+      this.selectedHouse = sessionStorage.getItem('selectedHouse')
+    }
   }
 }
 </script>

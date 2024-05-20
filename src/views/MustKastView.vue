@@ -102,6 +102,7 @@
                    width="50" height="50"/>
               <div class="hover-text">Saun</div>
             </div>
+            <h6>Saadaval mugavused on märgitud roheliselt</h6>
           </div>
         </div>
       </div>

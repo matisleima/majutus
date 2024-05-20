@@ -5,7 +5,7 @@
         Sootska Leima Luha Puhketalu
       </h1>
     </div>
-    <div class="section scroll-bg">
+    <div class="section scroll-bg houses">
 
       <div class="row-description">
         <h1 style="margin-bottom: 30px">Kuninglik puhkus Setomaal</h1>
@@ -68,8 +68,12 @@
     </div>
     <div class="section fixed-bg saun-bg" :style="{ backgroundImage: 'url(' + saunImagePath + ')' }">
     </div>
-    <div class="section scroll-bg">
+    <div class="section scroll-bg contact">
       <contact-form/>
+    </div>
+
+    <div class="contact-data">
+      <p>Luha talu, Leimani küla, Setomaa vald, Eesti / +372 5290261 / luhamajutus@gmail.com</p>
     </div>
   </div>
 </template>
@@ -97,6 +101,22 @@ export default {
       telkImagePath: telkImage,
       tiikImagePath: tiikImage
     };
+  },
+  mounted() {
+    if (sessionStorage.getItem('selectedHouse')) {
+      // Optionally, use Vue.nextTick to ensure all DOM updates have been processed
+      this.$nextTick(() => {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+        });
+      });
+    } else {
+      this.$nextTick(() => {
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+        }, 100); // Delay can be adjusted based on your needs
+      });
+    }
   }
 }
 </script>
@@ -111,7 +131,7 @@ export default {
   align-items: center;
   text-align: center;
   color: white;
-  font-size: 24px;
+  font-size: 18px;
   font-family: "Nirmala UI", sans-serif;
 }
 
@@ -126,9 +146,10 @@ img {
 }
 
 .col-tourism-text {
-  display: flex;           /* Enables flexbox */
-  flex-direction: column;  /* Stacks the flex items vertically */
+  display: flex; /* Enables flexbox */
+  flex-direction: column; /* Stacks the flex items vertically */
   justify-content: center; /* Centers the content vertically in the container */
+  text-align: justify;
 }
 
 .row-houses {
@@ -154,6 +175,26 @@ img {
   color: black;
 }
 
+.houses {
+}
+
+.contact {
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+}
+
+.contact-data {
+  max-height: 50px;
+  background: #ffffff;
+  color: #000000;
+  text-align: center;
+  font-size: 19px;
+  font-family: "Nirmala UI", sans-serif;
+  padding: 5px;
+}
+
 .row a {
   color: #666; /* Dark gray color */
   text-decoration: none; /* Removes underline */
@@ -165,8 +206,11 @@ img {
 }
 
 .content-section {
-  padding: 10px; /* Reduced padding */
+  padding: 40px; /* Reduced padding */
   width: 100%;
+  min-height: 50px;
+  display: flex;
+  flex-direction: column;
 }
 
 .content-image img {
@@ -196,7 +240,7 @@ img {
 }
 
 .row-description {
-  margin: 20px 20px 40px;
+  padding: 40px;
 }
 
 
