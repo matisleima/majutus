@@ -14,7 +14,8 @@
           <must-kast-calendar></must-kast-calendar>
         </div>
         <div class="row">
-<!--          <button type="button" class="btn btn-success mt-3">Mine broneerima!</button>-->
+          <button type="button" class="btn btn-success mt-3" @click="selectHouseAndRedirect('Must kast')">Mine broneerima!
+          </button>
         </div>
         <div class="row" style="margin-top: 15px">
           <h5>Öö alates 58€</h5>
@@ -23,7 +24,7 @@
 
       <div class="col">
         <div class="row" style="margin-bottom: 15px;">
-          <p style="text-align: justify">Hubane ja stiilne majake sobib argikärast eemaldujale puhkuseks või keskendunud tööks.
+          <p style="text-align: justify">Stiilne majake sobib argikärast eemaldujale puhkuseks või keskendunud tööks.
             Ideaalne peatumiseks varakevadest hilissügiseni, Majas on elekter, kahekohaline voodi, laud, esmased
             köögitarbed ning radiaator jahedamate ilmade tarbeks. Siin on hea peatuda Setomaa või Võrumaa külastajal
             või piirkonnas matkajal. Võimalik lisada väikelapse voodi. Pesta saab saunas ja ujuda puhta veega tiigis.
@@ -127,6 +128,7 @@
 
 <script>
 import MustKastCalendar from "@/components/MustKastCalendar.vue";
+import router from "@/router/index.js";
 
 export default {
   components: {
@@ -176,6 +178,10 @@ export default {
       } else if (e.key === 'Escape') {
         this.closeLightbox();
       }
+    },
+    selectHouseAndRedirect() {
+      sessionStorage.setItem('selectedHouse', 'Must kast')
+      router.push({name: 'homeRoute'})
     },
     goBack() {
       this.$router.back();
@@ -308,8 +314,12 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .background-section, .icon-available, .icon-unavailable {
-    height: auto; /* Adjust heights for smaller screens */
+  .background-section {
+    height: 30vh; /* Adjust heights for smaller screens */
+  }
+
+  .icon-available, .icon-unavailable {
+    height: auto;
   }
 
   .info-section {

@@ -14,7 +14,8 @@
           <plagando-calendar></plagando-calendar>
         </div>
         <div class="row">
-<!--          <button type="button" class="btn btn-success mt-3">Mine broneerima!</button>-->
+          <button type="button" class="btn btn-success mt-3" @click="selectHouseAndRedirect('Plagandõ puhkemaja')">Mine broneerima!
+          </button>
         </div>
         <div class="row" style="margin-top: 15px">
           <h5>Öö alates 119€</h5>
@@ -129,6 +130,7 @@
 
 <script>
 import PlagandoCalendar from "@/components/PlagandoCalendar.vue";
+import router from "@/router/index.js";
 
 export default {
   components: {
@@ -184,6 +186,10 @@ export default {
         this.closeLightbox();
       }
     },
+    selectHouseAndRedirect() {
+      sessionStorage.setItem('selectedHouse', 'Plagandõ puhkemaja')
+      router.push({name: 'homeRoute'})
+    },
     goBack() {
       this.$router.back();
     }
@@ -196,9 +202,9 @@ export default {
 
 <style scoped>
 .background-section {
-  height: 90vh;
+  height: 92vh;
   background: url('@/assets/plagando/plagando-main.webp') no-repeat center center / cover;
-  min-height: 400px;
+  min-height: 200px;
 }
 
 .info-section {
@@ -317,7 +323,11 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .background-section, .icon-available, .icon-unavailable {
+  .background-section {
+    height: 30vh;
+  }
+
+  .icon-available, .icon-unavailable {
     height: auto; /* Adjust heights for smaller screens */
   }
 

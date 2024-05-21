@@ -24,6 +24,7 @@ export default {
       // Ensure the dates are strings and correctly formatted
       occupiedDates: [
         '2024-05-16',
+        '2024-05-31',
         '2024-06-27',
         '2024-06-28',
         '2024-08-02',

@@ -102,6 +102,11 @@ export default {
       tiikImagePath: tiikImage
     };
   },
+  methods: {
+    clearSessionStorage(){
+      sessionStorage.clear()
+    }
+  },
   mounted() {
     if (sessionStorage.getItem('selectedHouse')) {
       // Optionally, use Vue.nextTick to ensure all DOM updates have been processed
@@ -117,6 +122,7 @@ export default {
         }, 100); // Delay can be adjusted based on your needs
       });
     }
+    this.clearSessionStorage();
   }
 }
 </script>
