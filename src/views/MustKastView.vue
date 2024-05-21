@@ -33,7 +33,6 @@
         <div class="icon-section" style="display: flex; justify-content: center; align-items: center;">
           <!--MUGAVUSED-->
           <div class="row icon-row">
-            <!--ELEKTER-->
             <div class="hover-container">
               <img src="@/assets/icons/plug-solid.svg"
                    class="icon-available"
