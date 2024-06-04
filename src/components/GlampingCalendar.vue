@@ -23,6 +23,7 @@ export default {
       currentMonth: new Date(),
       // Ensure the dates are strings and correctly formatted
       occupiedDates: [
+          '2024-06-02',
           '2024-08-02'
       ]
     };
