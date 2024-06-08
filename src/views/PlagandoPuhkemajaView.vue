@@ -18,7 +18,7 @@
           </button>
         </div>
         <div class="row" style="margin-top: 15px">
-          <h5>Öö alates 119€</h5>
+          <h5>Öö alates 95€</h5>
         </div>
       </div>
 
