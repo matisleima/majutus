@@ -25,23 +25,23 @@
 
       <div class="row-houses link-stack" style="margin-bottom: 20px">
         <router-link to="/ait">
-          <img src="../assets/ait/ait.webp" height="100"/>
+          <img src="../assets/thumbs/ait_thumb.webp" height="100"/>
           <h4>Ait</h4>
         </router-link>
         <router-link to="/kolgus">
-          <img src="../assets/kolgus/kolgus main.webp" height="100"/>
+          <img src="../assets/thumbs/kolgus_thumb.webp" height="100"/>
           <h4>Kõlgus</h4>
         </router-link>
         <router-link to="/plagando-puhkemaja">
-          <img src="../assets/plagando/plagando-main.webp" height="100"/>
+          <img src="../assets/thumbs/plagando_thumb.webp" height="100"/>
           <h4>Plagandõ<br>puhkemaja</h4>
         </router-link>
         <router-link to="/mustKast">
-          <img src="../assets/must_kast/suvemajake.webp" height="100"/>
+          <img src="../assets/thumbs/must_thumb.webp" height="100"/>
           <h4>Must kast</h4>
         </router-link>
         <router-link to="/glamping">
-          <img src="../assets/glamping/glamping-tuledega.jpg" height="100"/>
+          <img src="../assets/thumbs/glamping_thumb.webp" height="100"/>
           <h4>Glämping</h4>
         </router-link>
       </div>
