@@ -24,7 +24,7 @@ export default {
       // Ensure the dates are strings and correctly formatted
       occupiedDates: [
           '2024-06-02',
-          '2024-06-21',
+          '2024-06-21', //Stammid
           '2024-06-28', //seto folgi õhtu
           '2024-08-02'
       ]
