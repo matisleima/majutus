@@ -61,6 +61,9 @@
         <div class="col-6">
           <button type="submit" class="btn btn-success">Saada päring</button>
         </div>
+        <div v-if="alert" class="alert alert-success mt-3" role="alert">
+          {{ messageText }}
+        </div>
       </div>
     </form>
   </div>
@@ -82,7 +85,9 @@ export default {
       departureDate: '',
       additionalInfo: '',
       today: new Date().toISOString().substr(0, 10), // Get today's date in YYYY-MM-DD format
-      minDepartureDate: '' // Minimum departure date
+      minDepartureDate: '', // Minimum departure date
+      messageText: '',
+      alert: false
     };
   },
   watch: {
@@ -121,7 +126,7 @@ export default {
           .then((response) => {
             alert('Broneeringusoov on saadetud! Vastame esimesel võimalusel.');
           }, (err) => {
-            alert('Broneeringusoovi saatmine ebaõnnestus...');
+            alert('Broneeringusoovi saatmine ebaõnnestus. Palun proovi uuesti.');
           });
       this.resetForm();
     },
