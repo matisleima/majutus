@@ -28,6 +28,7 @@ export default {
           '2024-06-28', //seto folgi õhtu
           '2024-07-11', //vahur kranich
           '2024-07-19', //tuuli
+          '2024-07-25', //blokk
           '2024-07-26', //jaanus
           '2024-08-02', //blokk
           '2024-08-24' //birgit

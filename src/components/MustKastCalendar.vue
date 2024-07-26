@@ -39,6 +39,7 @@ export default {
         '2024-07-19', //kaur
         '2024-07-21', //angela
         '2024-07-22', //angela
+        '2024-07-25', //blokk
         '2024-08-01', //blokk
         '2024-08-02', //veiniklubi
         '2024-08-14', //laager
