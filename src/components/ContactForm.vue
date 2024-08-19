@@ -113,21 +113,40 @@ export default {
       }
     },
     submitForm() {
+      // Trim the inputs to remove any unnecessary whitespace
       const formParams = {
-        name: this.name,
-        email: this.email,
-        phone: this.phone,
-        selectedHouse: this.selectedHouse,
+        name: this.name.trim(),
+        email: this.email.trim(),
+        phone: this.phone.trim(),
+        selectedHouse: this.selectedHouse.trim(),
         arrivalDate: this.arrivalDate,
         departureDate: this.departureDate,
-        additionalInfo: this.additionalInfo
+        additionalInfo: this.additionalInfo.trim()
       };
+
+      // Simple regex for validating email format
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+
+      // Check for empty required fields
+      if (!formParams.email || !formParams.phone || !formParams.selectedHouse || !formParams.arrivalDate || !formParams.departureDate) {
+        alert('Palun täida kõik nõutud väljad!');
+        return;
+      }
+
+      // Check for valid email format
+      if (!emailRegex.test(formParams.email)) {
+        alert('Palun sisesta korrektne e-posti aadress!');
+        return;
+      }
+
+      // If all validations pass, send the form
       emailjs.send('service_4hbrhod', 'template_rbolduo', formParams, '8krq05KIeTitbWwT8')
           .then((response) => {
             alert('Broneeringusoov on saadetud! Vastame esimesel võimalusel.');
           }, (err) => {
             alert('Broneeringusoovi saatmine ebaõnnestus. Palun proovi uuesti.');
           });
+
       this.resetForm();
     },
     resetForm() {
