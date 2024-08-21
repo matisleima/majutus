@@ -20,31 +20,10 @@
 export default {
   data() {
     return {
+      API_KEY: 'AIzaSyC7pj5-sfA-xXryhmW_JvTOToAJQciMlvA', // Replace with your API key
+      SHEET_ID: '1W1uWVvGNG69o2IN_5qVbBwOPvmO61Z7LPh3bsIjknWA', // Replace with your Spreadsheet ID
       currentMonth: new Date(),
-      // Ensure the dates are strings and correctly formatted
-      occupiedDates: [
-        '2024-06-12',
-        '2024-06-13',
-        '2024-06-14',
-        '2024-06-21', //Luhamaalane
-        '2024-06-22', //Laurits
-        '2024-06-26',
-        '2024-06-27',
-        '2024-06-28',
-        '2024-06-29', //Andrés
-        '2024-07-14', //vahud
-        '2024-07-15', //norrakas
-        '2024-07-17', //kaur
-        '2024-07-18', //kaur
-        '2024-07-19', //kaur
-        '2024-07-21', //angela
-        '2024-07-22', //angela
-        '2024-07-25', //blokk
-        '2024-08-01', //blokk
-        '2024-08-02', //veiniklubi
-        '2024-08-14', //laager
-        '2024-08-15',
-      ]
+      occupiedDates: [] // This will be populated by data from the Google Sheet
     };
   },
   computed: {
@@ -73,7 +52,45 @@ export default {
     },
     isOccupied(dateString) {
       return this.occupiedDates.includes(dateString);
+    },
+    initClient() {
+      gapi.client.init({
+        apiKey: this.API_KEY,
+        discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"]
+      }).then(() => {
+        this.loadOccupiedDates();
+      });
+    },
+    loadOccupiedDates() {
+      gapi.client.sheets.spreadsheets.values.get({
+        spreadsheetId: this.SHEET_ID,
+        range: 'Sheet1!D2:D', // Adjust the range to your sheet's structure
+      }).then(response => {
+        const dates = response.result.values.map(row => row[0]);
+        this.occupiedDates = dates;
+      }, error => {
+        console.error('Error loading occupied dates:', error);
+      });
+    },
+    addDate(date) {
+      // Example method to add a date to the sheet
+      gapi.client.sheets.spreadsheets.values.append({
+        spreadsheetId: this.SHEET_ID,
+        range: 'Sheet1!D2:D',
+        valueInputOption: 'RAW',
+        insertDataOption: 'INSERT_ROWS',
+        resource: {
+          values: [[date]]
+        }
+      }).then(response => {
+        this.occupiedDates.push(date);
+      }, error => {
+        console.error('Error adding date:', error);
+      });
     }
+  },
+  mounted() {
+    gapi.load('client', this.initClient);
   }
 }
 </script>

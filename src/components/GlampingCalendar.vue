@@ -20,19 +20,10 @@
 export default {
   data() {
     return {
+      API_KEY: 'AIzaSyC7pj5-sfA-xXryhmW_JvTOToAJQciMlvA', // Replace with your API key
+      SHEET_ID: '1W1uWVvGNG69o2IN_5qVbBwOPvmO61Z7LPh3bsIjknWA', // Replace with your Spreadsheet ID
       currentMonth: new Date(),
-      // Ensure the dates are strings and correctly formatted
-      occupiedDates: [
-          '2024-06-02',
-          '2024-06-21', //Stammid
-          '2024-06-28', //seto folgi õhtu
-          '2024-07-11', //vahur kranich
-          '2024-07-19', //tuuli
-          '2024-07-25', //blokk
-          '2024-07-26', //jaanus
-          '2024-08-02', //blokk
-          '2024-08-24' //birgit
-      ]
+      occupiedDates: [] // This will be populated by data from the Google Sheet
     };
   },
   computed: {
@@ -61,7 +52,45 @@ export default {
     },
     isOccupied(dateString) {
       return this.occupiedDates.includes(dateString);
+    },
+    initClient() {
+      gapi.client.init({
+        apiKey: this.API_KEY,
+        discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"]
+      }).then(() => {
+        this.loadOccupiedDates();
+      });
+    },
+    loadOccupiedDates() {
+      gapi.client.sheets.spreadsheets.values.get({
+        spreadsheetId: this.SHEET_ID,
+        range: 'Sheet1!E2:E', // Adjust the range to your sheet's structure
+      }).then(response => {
+        const dates = response.result.values.map(row => row[0]);
+        this.occupiedDates = dates;
+      }, error => {
+        console.error('Error loading occupied dates:', error);
+      });
+    },
+    addDate(date) {
+      // Example method to add a date to the sheet
+      gapi.client.sheets.spreadsheets.values.append({
+        spreadsheetId: this.SHEET_ID,
+        range: 'Sheet1!E2:E',
+        valueInputOption: 'RAW',
+        insertDataOption: 'INSERT_ROWS',
+        resource: {
+          values: [[date]]
+        }
+      }).then(response => {
+        this.occupiedDates.push(date);
+      }, error => {
+        console.error('Error adding date:', error);
+      });
     }
+  },
+  mounted() {
+    gapi.load('client', this.initClient);
   }
 }
 </script>

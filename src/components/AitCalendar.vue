@@ -20,49 +20,10 @@
 export default {
   data() {
     return {
+      API_KEY: 'AIzaSyC7pj5-sfA-xXryhmW_JvTOToAJQciMlvA', // Replace with your API key
+      SHEET_ID: '1W1uWVvGNG69o2IN_5qVbBwOPvmO61Z7LPh3bsIjknWA', // Replace with your Spreadsheet ID
       currentMonth: new Date(),
-      // Ensure the dates are strings and correctly formatted
-      occupiedDates: [
-        '2024-05-16',
-        '2024-05-22',
-        '2024-05-31',
-        '2024-06-05',
-        '2024-06-06',
-        '2024-06-07',
-        '2024-06-12',
-        '2024-06-13',
-        '2024-06-17',
-        '2024-06-21', //Teemu
-        '2024-06-22', //Teemu
-        '2024-06-27',
-        '2024-06-28',
-        '2024-07-02', //ott köstner
-        '2024-07-03', //ott
-        '2024-07-04', //viismad
-        '2024-07-08', //monika
-        '2024-07-09', //siim
-        '2024-07-10', //siim
-        '2024-07-11', //maria elise
-        '2024-07-12', //leelo viita
-        '2024-07-13', //Irina Pavlova, 3in, 1laps
-        '2024-07-14', //Irina
-        '2024-07-16', //tralla
-        '2024-07-17', //rax
-        '2024-07-18', //pierre
-        '2024-07-19', //pierre
-        '2024-07-20', //pierre
-        '2024-07-21', //siim katkosilt
-        '2024-07-22', //siim
-        '2024-07-24', //antti
-        '2024-07-25', //eero
-        '2024-07-26', //merilin
-        '2024-07-31', //
-        '2024-08-01', //iiris
-        '2024-08-02', //naurid
-        '2024-08-09', //normunds
-        '2024-08-14',
-        '2024-08-15'
-      ]
+      occupiedDates: [] // This will be populated by data from the Google Sheet
     };
   },
   computed: {
@@ -91,7 +52,45 @@ export default {
     },
     isOccupied(dateString) {
       return this.occupiedDates.includes(dateString);
+    },
+    initClient() {
+      gapi.client.init({
+        apiKey: this.API_KEY,
+        discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"]
+      }).then(() => {
+        this.loadOccupiedDates();
+      });
+    },
+    loadOccupiedDates() {
+      gapi.client.sheets.spreadsheets.values.get({
+        spreadsheetId: this.SHEET_ID,
+        range: 'Sheet1!A2:A', // Adjust the range to your sheet's structure
+      }).then(response => {
+        const dates = response.result.values.map(row => row[0]);
+        this.occupiedDates = dates;
+      }, error => {
+        console.error('Error loading occupied dates:', error);
+      });
+    },
+    addDate(date) {
+      // Example method to add a date to the sheet
+      gapi.client.sheets.spreadsheets.values.append({
+        spreadsheetId: this.SHEET_ID,
+        range: 'Sheet1!A2:A',
+        valueInputOption: 'RAW',
+        insertDataOption: 'INSERT_ROWS',
+        resource: {
+          values: [[date]]
+        }
+      }).then(response => {
+        this.occupiedDates.push(date);
+      }, error => {
+        console.error('Error adding date:', error);
+      });
     }
+  },
+  mounted() {
+    gapi.load('client', this.initClient);
   }
 }
 </script>
