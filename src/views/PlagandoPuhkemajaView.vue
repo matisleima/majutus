@@ -140,11 +140,12 @@ export default {
   data() {
     return {
       images: [
-        new URL('@/assets/plagando/1.webp', import.meta.url).href,
-        new URL('@/assets/plagando/2.webp', import.meta.url).href,
-        new URL('@/assets/plagando/3.webp', import.meta.url).href,
-        new URL('@/assets/plagando/4.webp', import.meta.url).href,
-        new URL('@/assets/plagando/5.webp', import.meta.url).href,
+        new URL('@/assets/plagando/12.webp', import.meta.url).href,
+        new URL('@/assets/plagando/11.webp', import.meta.url).href,
+        new URL('@/assets/plagando/13.webp', import.meta.url).href,
+        new URL('@/assets/plagando/10.webp', import.meta.url).href,
+        new URL('@/assets/plagando/15.webp', import.meta.url).href,
+        new URL('@/assets/plagando/14.webp', import.meta.url).href,
         new URL('@/assets/plagando/6.webp', import.meta.url).href,
         new URL('@/assets/plagando/7.webp', import.meta.url).href,
         new URL('@/assets/plagando/8.webp', import.meta.url).href,
