@@ -20,6 +20,9 @@
         <div class="row" style="margin-top: 15px">
           <h5>Öö alates 52€</h5>
         </div>
+        <div class="row">
+          <h6>Glampingus sobib ööbida maist septembrini!</h6>
+        </div>
       </div>
 
       <div class="col">

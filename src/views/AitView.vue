@@ -20,6 +20,9 @@
         <div class="row" style="margin-top: 15px">
           <h5>Öö alates 58€</h5>
         </div>
+        <div class="row">
+          <h6>Aidas sobib ööbida maist septembrini!</h6>
+        </div>
       </div>
 
       <div class="col">
